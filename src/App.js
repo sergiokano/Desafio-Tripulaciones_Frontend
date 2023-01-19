@@ -5,6 +5,7 @@ import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
 import TestMap from "./components/TestMap/TestMap";
+import Login from "./components/Login/Login";
 
 function App() {
     return (
@@ -15,6 +16,7 @@ function App() {
                     <Routes>
                         <Route path="/" element={<Home />}></Route>
                         <Route path="/testmap" element={<TestMap />}></Route>
+                        <Route path="/loginUser" element={<Login />} />
                     </Routes>
                 </main>
                 <Footer />
