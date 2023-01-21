@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import { FaRegUserCircle } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import { MdPassword } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 import Calendar from "../../../assets/svgs/Calendar.svg";
 import Phone from "../../../assets/svgs/Phone.svg";
 import Text from "../../../assets/svgs/Text.svg";
 
 const RegisterNeighbour = () => {
+    const navigate = useNavigate();
     const [checked, setChecked] = useState(false);
     const [formData, setFormData] = useState({
         username: "",
@@ -229,18 +231,18 @@ const RegisterNeighbour = () => {
                             />
                         </div>
                     </div>
-                    <div class="flex items-center w-5/6 py-8">
+                    <div className="flex items-center w-5/6 py-8">
                         <input
                             checked={checked}
                             onChange={handleCheckedChange}
                             id="checked-checkbox"
                             type="checkbox"
                             value=""
-                            class="w-4 h-4 accent-orange-1 p-1 text-white border-gray-300"
+                            className="w-4 h-4 accent-orange-1 p-1 text-white border-gray-300"
                         />
                         <label
-                            for="checked-checkbox"
-                            class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                            htmlFor="checked-checkbox"
+                            className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                         >
                             Aceptar políticas de privacidad
                         </label>
@@ -254,13 +256,19 @@ const RegisterNeighbour = () => {
                         </span>
                     </div>
                 </div>
-                <div className="w-5/6">
+                <div className="w-5/6 flex flex-col gap-3 justify-center items-center py-6">
                     <button
                         type="submit"
-                        className="text-white font-semibold text-[17px] w-full my-8 bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 rounded-[12px] p-2.5"
+                        className="text-white w-5/6 font-semibold text-[17px] bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 rounded-[12px] p-2.5"
                     >
                         Registrarse
                     </button>
+                    <span
+                        className="text-neutral-5 text-[13px] font-semibold"
+                        onClick={() => navigate("/login")}
+                    >
+                        Inicio sesión
+                    </span>
                 </div>
             </form>
         </div>

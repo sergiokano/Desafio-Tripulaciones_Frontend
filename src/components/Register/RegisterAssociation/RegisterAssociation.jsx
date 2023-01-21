@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { FaRegUserCircle, FaUserFriends } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import { MdPassword } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 import Phone from "../../../assets/svgs/Phone.svg";
 import Text from "../../../assets/svgs/Text.svg";
 
 const RegisterAssociation = () => {
+    const navigate = useNavigate();
     const [checked, setChecked] = useState(false);
     const [formData, setFormData] = useState({
         username: "",
@@ -245,13 +247,19 @@ const RegisterAssociation = () => {
                         </label>
                     </div>
                 </div>
-                <div className="w-5/6">
+                <div className="w-5/6 flex flex-col gap-3 justify-center items-center py-6">
                     <button
                         type="submit"
-                        className="text-white w-full my-8 font-semibold text-[17px] bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 rounded-[12px] p-2.5"
+                        className="text-white w-5/6 font-semibold text-[17px] bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 rounded-[12px] p-2.5"
                     >
                         Registrarse
                     </button>
+                    <span
+                        className="text-neutral-5 text-[13px] font-semibold"
+                        onClick={() => navigate("/login")}
+                    >
+                        Inicio sesión
+                    </span>
                 </div>
             </form>
         </div>
