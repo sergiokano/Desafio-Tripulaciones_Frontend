@@ -1,17 +1,27 @@
 import React, { useState } from "react";
-import { BsCalendar3 } from "react-icons/bs";
 import { FaRegUserCircle } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import { MdPassword } from "react-icons/md";
+import Calendar from "../../../assets/svgs/Calendar.svg";
+import Phone from "../../../assets/svgs/Phone.svg";
+import Text from "../../../assets/svgs/Text.svg";
 
 const RegisterNeighbour = () => {
+    const [checked, setChecked] = useState(false);
     const [formData, setFormData] = useState({
         username: "",
         email: "",
         password: "",
         confirmPassword: "",
+        firstName: "",
+        lastName: "",
+        phone: "",
         birthdate: "",
     });
+
+    const handleCheckedChange = () => {
+        setChecked(!checked);
+    };
 
     const onChange = (e) => {
         setFormData((prevState) => ({
@@ -20,7 +30,16 @@ const RegisterNeighbour = () => {
         }));
     };
 
-    const { username, email, password, confirmPassword, birthdate } = formData;
+    const {
+        username,
+        email,
+        password,
+        confirmPassword,
+        firstName,
+        lastName,
+        phone,
+        birthdate,
+    } = formData;
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -33,7 +52,7 @@ const RegisterNeighbour = () => {
                 className="flex-1 flex flex-col items-center"
                 onSubmit={onSubmit}
             >
-                <div className="flex-1 flex flex-col items-center gap-3 bg-neutral-1 py-4 w-full">
+                <div className="flex-1 flex flex-col items-center gap-2 bg-neutral-1 py-4 w-full">
                     <div className="w-5/6">
                         <label
                             htmlFor="neighbourUser"
@@ -124,6 +143,72 @@ const RegisterNeighbour = () => {
                     </div>
                     <div className="w-5/6">
                         <label
+                            htmlFor="neighbourbFirstName"
+                            className="block mb-2 text-xs font-bold text-gray-900"
+                        >
+                            Nombre
+                        </label>
+                        <div className="relative">
+                            <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                <img src={Text} alt="" />
+                            </div>
+                            <input
+                                type="text"
+                                id="neighbourFirstName"
+                                name="firstName"
+                                value={firstName}
+                                onChange={onChange}
+                                className="bg-neutral-2 border outline-0 border-gray-300 focus:ring-orange-2 focus:ring-2 text-gray-900 text-base rounded-[12px] block w-full pl-10 p-2"
+                                placeholder="Nombre"
+                            />
+                        </div>
+                    </div>
+                    <div className="w-5/6">
+                        <label
+                            htmlFor="neighbourbLastName"
+                            className="block mb-2 text-xs font-bold text-gray-900"
+                        >
+                            Apellidos
+                        </label>
+                        <div className="relative">
+                            <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                <img src={Text} alt="" />
+                            </div>
+                            <input
+                                type="text"
+                                id="neighbourLastName"
+                                name="lastName"
+                                value={lastName}
+                                onChange={onChange}
+                                className="bg-neutral-2 border outline-0 border-gray-300 focus:ring-orange-2 focus:ring-2 text-gray-900 text-base rounded-[12px] block w-full pl-10 p-2"
+                                placeholder="Apellidos"
+                            />
+                        </div>
+                    </div>
+                    <div className="w-5/6">
+                        <label
+                            htmlFor="neighbourbPhone"
+                            className="block mb-2 text-xs font-bold text-gray-900"
+                        >
+                            Teléfono
+                        </label>
+                        <div className="relative">
+                            <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                <img src={Phone} alt="" />
+                            </div>
+                            <input
+                                type="text"
+                                id="neighbourPhone"
+                                name="phone"
+                                value={phone}
+                                onChange={onChange}
+                                className="bg-neutral-2 border outline-0 border-gray-300 focus:ring-orange-2 focus:ring-2 text-gray-900 text-base rounded-[12px] block w-full pl-10 p-2"
+                                placeholder="Apellidos"
+                            />
+                        </div>
+                    </div>
+                    <div className="w-5/6">
+                        <label
                             htmlFor="neighbourbBirthdate"
                             className="block mb-2 text-xs font-bold text-gray-900"
                         >
@@ -131,7 +216,7 @@ const RegisterNeighbour = () => {
                         </label>
                         <div className="relative">
                             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                                <BsCalendar3 className="text-slate-500 text-lg" />
+                                <img src={Calendar} alt="" />
                             </div>
                             <input
                                 type="text"
@@ -143,6 +228,22 @@ const RegisterNeighbour = () => {
                                 placeholder="Ej: 13/01/1990"
                             />
                         </div>
+                    </div>
+                    <div class="flex items-center w-5/6 py-8">
+                        <input
+                            checked={checked}
+                            onChange={handleCheckedChange}
+                            id="checked-checkbox"
+                            type="checkbox"
+                            value=""
+                            class="w-4 h-4 accent-orange-1 p-1 text-white border-gray-300"
+                        />
+                        <label
+                            for="checked-checkbox"
+                            class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                        >
+                            Aceptar políticas de privacidad
+                        </label>
                     </div>
                 </div>
                 <div className="w-5/6">
