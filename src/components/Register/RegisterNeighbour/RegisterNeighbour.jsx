@@ -52,7 +52,7 @@ const RegisterNeighbour = () => {
                 className="flex-1 flex flex-col items-center"
                 onSubmit={onSubmit}
             >
-                <div className="flex-1 flex flex-col items-center gap-2 bg-neutral-1 py-4 w-full">
+                <div className="flex-1 flex flex-col items-center gap-2 bg-neutral-1 pt-4 w-full">
                     <div className="w-5/6">
                         <label
                             htmlFor="neighbourUser"
@@ -245,11 +245,19 @@ const RegisterNeighbour = () => {
                             Aceptar políticas de privacidad
                         </label>
                     </div>
+                    <div className="w-full bg-orange-1 py-4 px-6 flex items-center gap-4 text-white">
+                        <div>
+                            <FaRegUserCircle className="text-[22px]" />
+                        </div>
+                        <span className="text-sm">
+                            {"El nombre de usuario no puede estar vacío"}
+                        </span>
+                    </div>
                 </div>
                 <div className="w-5/6">
                     <button
                         type="submit"
-                        className="text-white w-full my-8 bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-[12px] text-sm p-2.5"
+                        className="text-white font-semibold text-[17px] w-full my-8 bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 rounded-[12px] p-2.5"
                     >
                         Registrarse
                     </button>
