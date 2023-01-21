@@ -1,109 +1,49 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { register } from "../../features/auth/authSlice";
-import { Button, Checkbox, Form, Input, notification } from "antd";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import RegisterAssociation from "./RegisterAssociation/RegisterAssociation";
+import RegisterNeighbour from "./RegisterNeighbour/RegisterNeighbour";
 
-const Register = (props) => {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    username: "",
-    email: "",
-    phone: "",
-    address: "",
-    birthdate: "",
-    password: "",
-    confirmPassword: "",
-  });
-
-  const {
-    firstName,
-    lastName,
-    username,
-    email,
-    phone,
-    address,
-    birthdate,
-    password,
-    confirmPassword,
-  } = formData;
-
-  const navigate = useNavigate();
-  const [form] = Form.useForm();
-
-  const onFinish = (values) => {
-    formData.password = values.password;
-    formData.password2 = values.password2;
-    console.log(formData);
-    dispatch(register(formData));
-    props.setModal(false);
-  };
-
-  const dispatch = useDispatch();
-
-  const onChange = (e) => {
-    setFormData((prevState) => ({
-      ...prevState,
-      [e.target.name]: e.target.value,
-    }));
-  };
-
-  const { isSuccess, message, isError } = useSelector((state) => state.auth);
-
-  useEffect(() => {
-    if (isSuccess) {
-      notification.success({
-        message: "Bienvenid@ Twitcher@, es hora de remover el caldero",
-
-        description: message,
-      });
-    }
-
-    if (isError) {
-      notification.error({ message: "Error", description: message });
-    }
-  }, [isSuccess, isError, message]);
-
-  return (
-    <div className="register">
-      <>
-        <form autoComplete="true" onFinish={onFinish}>
-          <div className="userForm">
-            <input
-              name="firstName"
-              value={firstName}
-              onChange={onChange}
-              type="text"
-              className="form-control mt-1"
-              rules={[
-                {
-                  required: true,
-                  message: "Por favor, ingresa tu Nombre",
-                },
-              ]}
-              placeholder="Nombre"
-            />
-
-            <input
-              name="email"
-              value={email}
-              onChange={onChange}
-              type="email"
-              className="form-control mt-1"
-              rules={[
-                {
-                  required: true,
-                  message: "Por favor, ingresa tu correo!",
-                },
-              ]}
-              placeholder="Correo"
-            />
-          </div>
-        </form>
-      </>
-    </div>
-  );
+const Register = () => {
+    const [isNeighbour, setIsNeighbour] = useState(true);
+    return (
+        <div className="flex justify-center w-screen h-screen">
+            <div className="flex flex-col items-center w-full">
+                <div className="w-5/6 flex bg-[#D9D9D9] rounded-[12px] leading-7 text-[17px] my-7">
+                    <span
+                        className={`flex-1 py-2 text-center font-semibold rounded-[12px] ${
+                            isNeighbour
+                                ? "bg-orange-1 text-white"
+                                : "bg-[#D9D9D9] text-black"
+                        }`}
+                        onClick={() => setIsNeighbour(true)}
+                    >
+                        Vecino
+                    </span>
+                    <span
+                        className={`flex-1 py-2 text-center font-semibold rounded-[12px] ${
+                            !isNeighbour
+                                ? "bg-orange-1 text-white"
+                                : "bg-[#D9D9D9] text-black"
+                        }`}
+                        onClick={() => setIsNeighbour(false)}
+                    >
+                        AAVV
+                    </span>
+                </div>
+                <div className="w-5/6 my-6">
+                    <span className="font-semibold leading-6 text-[20px]">
+                        Introduce tus datos
+                    </span>
+                </div>
+                <div className="flex-1 w-full flex flex-col">
+                    {isNeighbour ? (
+                        <RegisterNeighbour />
+                    ) : (
+                        <RegisterAssociation />
+                    )}
+                </div>
+            </div>
+        </div>
+    );
 };
 
 export default Register;
