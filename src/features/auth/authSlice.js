@@ -38,7 +38,16 @@ export const authSlice = createSlice({
           .addCase(logout.fulfilled, (state) => {
             state.user = null;
           })
-          
+          .addCase(register.fulfilled, (state, action) => {
+       
+
+            state.message = action.payload.message;
+          })
+          .addCase(register.rejected, (state, action) => {
+            state.isError = true;
+    
+            state.message = action.payload;
+          })
           }
         })
       
@@ -60,6 +69,16 @@ export const authSlice = createSlice({
       }
     });
     
+
+    export const register = createAsyncThunk("auth/createUser", async (user) => {
+      try {
+        return await authService.register(user);
+      } catch (error) {
+        console.error(error);
+      }
+    });
+    
+
     
     export const { reset } = authSlice.actions;
     export default authSlice.reducer;

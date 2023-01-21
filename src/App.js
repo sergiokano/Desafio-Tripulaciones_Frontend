@@ -6,6 +6,7 @@ import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
 import TestMap from "./components/TestMap/TestMap";
 import Login from "./components/Login/Login";
+import Register from "./components/Register/Register";
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
                         <Route path="/" element={<Home />}></Route>
                         <Route path="/testmap" element={<TestMap />}></Route>
                         <Route path="/loginUser" element={<Login />} />
+                        <Route path="/createUser" element={<Register />} />
                     </Routes>
                 </main>
                 <Footer />

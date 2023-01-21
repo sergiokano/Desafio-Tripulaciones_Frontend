@@ -20,8 +20,17 @@ const logout = async () => {
   }
   return res.data;
 };
+
+
+const register = async (userData) => {
+  console.log(userData)
+  const res = await axios.post(API_URL + "/users/createUser", userData);
+  return res.data;
+};
+
 const authService = {
   login,
   logout,
+  register,
 };
 export default authService;
