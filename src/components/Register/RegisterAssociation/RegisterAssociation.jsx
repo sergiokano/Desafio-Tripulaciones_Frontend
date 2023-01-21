@@ -248,7 +248,7 @@ const RegisterAssociation = () => {
                 <div className="w-5/6">
                     <button
                         type="submit"
-                        className="text-white w-full my-8 bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-[12px] text-sm p-2.5"
+                        className="text-white w-full my-8 font-semibold text-[17px] bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 rounded-[12px] p-2.5"
                     >
                         Registrarse
                     </button>
