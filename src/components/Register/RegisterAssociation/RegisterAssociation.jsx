@@ -17,14 +17,14 @@ import { registerAssociation, reset } from "../../../features/auth/authSlice";
 const RegisterAssociation = () => {
     const [checked, setChecked] = useState(false);
     const [formData, setFormData] = useState({
-        username: "thekano",
-        cif: "A12312312",
-        email: "s@gmail.com",
-        password: "Password123*",
-        password2: "Password123*",
-        firstName: "s",
-        lastName: "s",
-        phone: "654654654",
+        username: "",
+        cif: "",
+        email: "",
+        password: "",
+        password2: "",
+        firstName: "",
+        lastName: "",
+        phone: "",
     });
 
     const handleCheckedChange = () => {

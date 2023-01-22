@@ -17,14 +17,14 @@ import { registerUser, reset } from "../../../features/auth/authSlice";
 const RegisterNeighbour = () => {
     const [checked, setChecked] = useState(false);
     const [formData, setFormData] = useState({
-        username: "user",
-        email: "email@gmail.com",
-        password: "Password123*",
-        password2: "Password123*",
-        firstName: "ss",
-        lastName: "ss",
-        phone: "654654654",
-        birthdate: "14/14/1990",
+        username: "",
+        email: "",
+        password: "",
+        password2: "",
+        firstName: "",
+        lastName: "",
+        phone: "",
+        birthdate: "",
     });
 
     const handleCheckedChange = () => {
