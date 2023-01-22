@@ -4,11 +4,16 @@ import { getInfo } from "../../features/auth/authSlice";
 
 const Profile = () => {
   const { user } = useSelector((state) => state.auth);
+  const { posts} = useSelector(
+    (state) => state.posts
+  );
+
   const dispatch = useDispatch();
+  const API_URL = "http://localhost:8080/";
 
   useEffect(() => {
     dispatch(getInfo());
-  }, []);
+  }, [posts]);
 
   if (!user) {
     return <p>Loading...</p>;
@@ -17,17 +22,26 @@ const Profile = () => {
   const post = user.user.postIds.map((post) => {
     return (
       <div key={post._id}>
-        <p>{post.title}</p>
-        <p>{post.description}</p>
+        <div>
+          {post.image_path && (
+            <div>
+              <img src={API_URL + post.image_path} alt="" />
+            </div>
+          )}
+          <div>
+            <h3>{post.incidence}</h3>
+            <p>{post.description}</p>
+          </div>
+        </div>
       </div>
     );
   });
 
   return (
     <div>
-      <p>Name: {user.user.name}</p>
+      <p>{user.user.firstName}</p>
       <p>Email: {user.user.email}</p>
-      <p>Number of Posts: {user?.user.postIds.length}</p>
+      <p>Incidencias reportadas: {user?.user.postIds.length}</p>
       {post}
     </div>
   );
