@@ -5,6 +5,7 @@ import Home from "./components/Home/Home";
 import HomeMap from "./components/HomeMap/HomeMap";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
+import RegisterSuccesful from "./components/Register/RegisterSuccesful";
 
 function App() {
     return (
@@ -16,6 +17,10 @@ function App() {
                         <Route path="/home-map" element={<HomeMap />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/register" element={<Register />} />
+                        <Route
+                            path="/registerOK"
+                            element={<RegisterSuccesful />}
+                        />
                     </Routes>
                 </main>
             </BrowserRouter>
