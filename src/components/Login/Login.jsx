@@ -135,8 +135,9 @@ const Login = () => {
                         Inicar sesión
                     </button>
                     <span
-                        className="text-neutral-5 text-[13px] font-semibold"
+                        className="text-neutral-5 text-[13px] font-semibold hover:text-gray-900"
                         onClick={() => navigate("/register")}
+                        style={{ cursor: "pointer" }}
                     >
                         Registrarse
                     </span>
