@@ -19,20 +19,15 @@ const Login = () => {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(reset());
-}, []);
-
-
   const onChange = (e) => {
     if (isError) {
-        dispatch(reset());
+      dispatch(reset());
     }
     setFormData((prevState) => ({
-        ...prevState,
-        [e.target.name]: e.target.value,
+      ...prevState,
+      [e.target.name]: e.target.value,
     }));
-};
+  };
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -52,7 +47,7 @@ const Login = () => {
       }, 2000);
     }
 
-    dispatch(reset());
+    // dispatch(reset());
   }, [isError, isSuccess, message]);
 
   return (
@@ -115,11 +110,10 @@ const Login = () => {
               </div>
             </div>
           </div>
-          <div className="flex-1 w-full flex flex-col-reverse">
+          <div className="my-5 flex-1 w-full flex flex-col-reverse">
             {/* Este div de aquí debajo te lod ejo para que lo uses para ponerle el error del back. Si no hay error este div no debería salir */}
-            <div className="w-full bg-orange-1 py-4 px-6 text-white flex gap-3 items-center"
-              style={{ display: isError ? "block" : "none" }}>
-              <div className="w-full flex items-center gap-4">
+            <div className="w-full bg-orange-1 py-4 px-6 text-white flex items-center justify-between">
+              <div className="flex items-center gap-4">
                 <div>
                   <HiOutlineMail className="text-[22px]" />
                 </div>
@@ -127,8 +121,11 @@ const Login = () => {
                   {"Puede que todavía no seas miembro de SomBarri"}
                 </span>
               </div>
-              <div>
-                <button className="text-[13px] p-1 border-white border rounded-[20px] px-2">
+              <div className="flex items-center">
+                <button
+                  className="text-[13px] p-1 border-white border rounded-[20px] px-2  hover:bg-orange-2 "
+                  onClick={() => navigate("/register")}
+                >
                   Registrarse
                 </button>
               </div>
