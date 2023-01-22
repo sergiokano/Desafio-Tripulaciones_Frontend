@@ -119,7 +119,8 @@ const Login = () => {
                   <HiOutlineMail className="text-[22px]" />
                 </div>
                 <span className="text-sm">
-                  {"Puede que todavía no seas miembro de SomBarri"}
+                  Correo y/o contraseña incorrectos. <br /> 
+                  Puede que todavía no seas miembro de SomBarri
                 </span>
               </div>
               <div className="flex items-center">
