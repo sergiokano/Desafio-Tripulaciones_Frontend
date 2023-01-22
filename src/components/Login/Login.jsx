@@ -6,7 +6,7 @@ import { MdPassword } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Bridge from "../../assets/svgs/Bridge.svg";
-import { reset } from "../../features/auth/authSlice";
+import { login, reset } from "../../features/auth/authSlice";
 
 const Login = () => {
     const [formData, setFormData] = useState({
@@ -26,7 +26,7 @@ const Login = () => {
     };
     const onSubmit = (e) => {
         e.preventDefault();
-        // dispatch(login(formData));
+        dispatch(login(formData));
         console.log(formData);
     };
 
@@ -53,7 +53,11 @@ const Login = () => {
                     ¡Adelante! Estás en tu casa
                 </span>
             </div>
-            <form className="flex-1 flex flex-col" onSubmit={onSubmit}>
+            <form
+                className="flex-1 flex flex-col"
+                onSubmit={onSubmit}
+                autoComplete="off"
+            >
                 <div className="flex-1 bg-neutral-1 flex flex-col items-center">
                     <img src={Bridge} alt="" className="w-10/12 mt-12" />
                     <div className="flex flex-col w-5/6 mt-10 gap-2">
@@ -126,9 +130,9 @@ const Login = () => {
                 <div className="w-full flex flex-col gap-3 justify-center items-center py-6">
                     <button
                         type="submit"
-                        className="text-white w-5/6 font-semibold text-[17px] bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 rounded-[12px] p-2.5"
+                        className="text-white w-5/6 text-[17px] bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 rounded-[12px] p-2.5"
                     >
-                        Iniciar sesión
+                        Inicar sesión
                     </button>
                     <span
                         className="text-neutral-5 text-[13px] font-semibold"

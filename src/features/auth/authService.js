@@ -1,14 +1,6 @@
 import axios from "axios";
 const API_URL = process.env.REACT_APP_API_URL;
 
-const register = async (userData) => {
-
-  const res = await axios.post(API_URL + "/users/createUser", userData);
-  
-  return res.data;
-  
-  };
-
 const login = async (userData) => {
   const res = await axios.post(API_URL + "/users/loginUser", userData);
   if (res.data) {
@@ -28,20 +20,23 @@ const logout = async () => {
   }
   return res.data;
 };
-const getInfo = async () => {
-  const user = JSON.parse(localStorage.getItem("user"));
-  const res = await axios.get(API_URL + "/users/getinfo", {
-      headers: {
-          authorization: user?.token,
-      },
-  });
-  
-  return res.data
-}
+
+const registerUser = async (userData) => {
+  const res = await axios.post(API_URL + "/users/createUser", userData);
+
+  return res.data;
+};
+
+const registerAssociation = async (userData) => {
+  const res = await axios.post(API_URL + "/users/createAssociation", userData);
+
+  return res.data;
+};
+
 const authService = {
-  register,
   login,
   logout,
-  getInfo
+  registerUser,
+  registerAssociation
 };
 export default authService;

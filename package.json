@@ -10,6 +10,7 @@
         "axios": "^1.2.3",
         "dotenv": "^16.0.3",
         "flowbite": "^1.6.2",
+        "flowbite-datepicker": "^1.2.2",
         "flowbite-react": "^0.3.7",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
@@ -17,7 +18,8 @@
         "react-redux": "^8.0.5",
         "react-router-dom": "^6.6.2",
         "react-scripts": "5.0.1",
-        "sass": "^1.57.1"
+        "sass": "^1.57.1",
+        "tailwind-datepicker-react": "^1.2.3"
     },
     "scripts": {
         "start": "react-scripts start",
