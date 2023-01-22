@@ -1,21 +1,22 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import "./Header.scss"
-const Header = () => {
-  return (
-    <>
-      <div className="headercontainer">
-        <div className="nav">
-          
-          <Link to="/">Home</Link>
-          <Link to="/loginUser">Login</Link>
-          <Link to="/logoutUser">Logout</Link>
+import { FaRegUserCircle } from "react-icons/fa";
+import DropdownIcon from "../../assets/svgs/DropdownIcon.svg";
+import "./Header.scss";
 
-          
-        </div>
-      </div>
-    </>
-  );
+const Header = () => {
+    return (
+        <header className="flex items-center justify-around w-screen p-6 text-white bg-orange-1">
+            <div className="flex gap-3 items-center">
+                <img src={DropdownIcon} alt="" />
+                <span>Soc Campanar</span>
+            </div>
+            <div>
+                <span>
+                    <FaRegUserCircle className="text-[22px]" />
+                </span>
+            </div>
+        </header>
+    );
 };
 
 export default Header;

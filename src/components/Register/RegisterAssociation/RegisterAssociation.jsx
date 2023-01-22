@@ -11,7 +11,9 @@ import { MdPassword } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Phone from "../../../assets/svgs/Phone.svg";
+import PhoneWhite from "../../../assets/svgs/PhoneWhite.svg";
 import Text from "../../../assets/svgs/Text.svg";
+import TextWhite from "../../../assets/svgs/TextWhite.svg";
 import { registerAssociation, reset } from "../../../features/auth/authSlice";
 
 const RegisterAssociation = () => {
@@ -28,6 +30,9 @@ const RegisterAssociation = () => {
     });
 
     const handleCheckedChange = () => {
+        if (isError) {
+            dispatch(reset());
+        }
         setChecked(!checked);
     };
 
@@ -77,6 +82,7 @@ const RegisterAssociation = () => {
         <div className="flex-1 flex flex-col">
             <form
                 className="flex-1 flex flex-col items-center"
+                autoComplete="off"
                 onSubmit={onSubmit}
             >
                 <div className="flex-1 flex flex-col items-center gap-2 bg-neutral-1 py-4 w-full">
@@ -256,19 +262,20 @@ const RegisterAssociation = () => {
                             />
                         </div>
                     </div>
-                    <div class="flex items-center w-5/6 py-8">
+                    <div className="flex items-center w-5/6 py-8">
                         <input
                             checked={checked}
                             onChange={handleCheckedChange}
                             id="checked-checkbox2"
                             type="checkbox"
-                            class="w-4 h-4 accent-orange-1 p-1 text-white border-gray-300"
+                            value=""
+                            className="w-4 h-4 accent-orange-1 p-1 text-white border-gray-300"
                         />
                         <label
-                            for="checked-checkbox2"
-                            class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                            htmlFor="checked-checkbox2"
+                            className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                         >
-                            Aceptar términos y privacidad
+                            Aceptar política de privacidad de datos
                         </label>
                     </div>
 
@@ -278,9 +285,16 @@ const RegisterAssociation = () => {
                     >
                         <div className="flex items-center">
                             <div className="mr-2">
-                                {errorIcon === "firstName" && <FaUserCircle />}
-                                {errorIcon === "lastName" && <FaUserCircle />}
-                                {errorIcon === "username" && <HiOutlineMail />}
+                                {errorIcon === "firstName" && (
+                                    <img src={TextWhite} alt="" />
+                                )}
+                                {errorIcon === "lastName" && (
+                                    <img src={TextWhite} alt="" />
+                                )}
+                                {errorIcon === "phone" && (
+                                    <img src={PhoneWhite} alt="" />
+                                )}
+                                {errorIcon === "username" && <FaUserCircle />}
                                 {errorIcon === "email" && <HiOutlineMail />}
                                 {errorIcon === "password" && <MdPassword />}
                                 {errorIcon === "password2" && <MdPassword />}
@@ -293,13 +307,19 @@ const RegisterAssociation = () => {
                         </div>
                     </div>
                 </div>
-                <div className="w-5/6">
+                <div className="w-full flex flex-col gap-3 justify-center items-center py-6">
                     <button
                         type="submit"
-                        className="text-white w-full my-8 text-[17px] bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 rounded-[12px] p-2.5"
+                        className="text-white w-5/6 text-[17px] bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 rounded-[12px] p-2.5"
                     >
                         Registrarse
                     </button>
+                    <span
+                        className="text-neutral-5 text-[13px] font-semibold"
+                        onClick={() => navigate("/login")}
+                    >
+                        Iniciar sesión
+                    </span>
                 </div>
             </form>
         </div>

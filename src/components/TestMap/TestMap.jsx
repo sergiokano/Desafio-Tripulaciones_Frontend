@@ -5,6 +5,7 @@ import Map from "@arcgis/core/Map";
 import MapView from "@arcgis/core/views/MapView";
 import Search from "@arcgis/core/widgets/Search";
 import React, { createRef, useEffect, useState } from "react";
+import Header from "../Header/Header";
 import "./TestMap.scss";
 
 const TestMap = () => {
@@ -37,6 +38,10 @@ const TestMap = () => {
     // };
 
     useEffect(() => {
+        const map = new Map({
+            basemap: "arcgis-light-gray", // streets, navigation, topograhic, imagery
+        });
+
         const view = new MapView({
             map: map,
             center: [-0.405189, 39.483755], // Longitude, latitude
@@ -83,8 +88,14 @@ const TestMap = () => {
     }, []);
 
     return (
-        <div>
-            <div id="viewDiv" ref={viewDiv}></div>
+        <div className="flex flex-col items-center w-screen h-screen">
+            <Header />
+            <div
+                id="viewDiv"
+                className="w-full h-full border-0"
+                ref={viewDiv}
+            ></div>
+            <div className="w-5/6 flex justify-center gap-2"></div>
         </div>
     );
 };

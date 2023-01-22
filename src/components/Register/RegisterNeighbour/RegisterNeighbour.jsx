@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
+import { BsCalendar2Fill } from "react-icons/bs";
 import {
     FaExclamationCircle,
     FaRegUserCircle,
@@ -9,12 +10,38 @@ import { HiOutlineMail } from "react-icons/hi";
 import { MdPassword } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import Calendar from "../../../assets/svgs/Calendar.svg";
+import DatePicker from "tailwind-datepicker-react";
 import Phone from "../../../assets/svgs/Phone.svg";
+import PhoneWhite from "../../../assets/svgs/PhoneWhite.svg";
 import Text from "../../../assets/svgs/Text.svg";
+import TextWhite from "../../../assets/svgs/TextWhite.svg";
 import { registerUser, reset } from "../../../features/auth/authSlice";
+import "./RegisterNeighbour.scss";
+
+const options = {
+    title: "Fecha de nacimiento",
+    autoHide: true,
+    todayBtn: false,
+    clearBtn: false,
+    maxDate: new Date("2050-01-01"),
+    minDate: new Date("1950-01-01"),
+    theme: {
+        background: "bg-white",
+        todayBtn: "",
+        clearBtn: "",
+        icons: "",
+        text: "",
+        input: "",
+        inputIcon: "",
+        selected: "bg-white",
+    },
+    datepickerClassNames: "-top-64",
+    defaultDate: "",
+    language: "es",
+};
 
 const RegisterNeighbour = () => {
+    const [show, setShow] = useState(false);
     const [checked, setChecked] = useState(false);
     const [formData, setFormData] = useState({
         username: "",
@@ -24,23 +51,31 @@ const RegisterNeighbour = () => {
         firstName: "",
         lastName: "",
         phone: "",
-        birthdate: "",
+        birthdate: new Date(),
     });
 
     const handleCheckedChange = () => {
+        if (isError) {
+            dispatch(reset());
+        }
         setChecked(!checked);
     };
 
-    const {
-        username,
-        email,
-        password,
-        password2,
-        firstName,
-        lastName,
-        phone,
-        birthdate,
-    } = formData;
+    const handleChangeDate = (selectedDate) => {
+        if (isError) {
+            dispatch(reset());
+        }
+        setFormData((prevState) => ({
+            ...prevState,
+            birthdate: selectedDate,
+        }));
+    };
+    const handleClose = (state) => {
+        setShow(state);
+    };
+
+    const { username, email, password, password2, firstName, lastName, phone } =
+        formData;
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -70,7 +105,6 @@ const RegisterNeighbour = () => {
     };
 
     const onSubmit = (e) => {
-        console.log(checked);
         e.preventDefault();
         dispatch(registerUser({ ...formData, checked }));
     };
@@ -79,6 +113,7 @@ const RegisterNeighbour = () => {
         <div className="flex-1 flex flex-col">
             <form
                 className="flex-1 flex flex-col items-center"
+                autoComplete="off"
                 onSubmit={onSubmit}
             >
                 <div className="flex-1 flex flex-col items-center gap-2 bg-neutral-1 pt-4 w-full">
@@ -229,6 +264,7 @@ const RegisterNeighbour = () => {
                                 type="text"
                                 id="neighbourPhone"
                                 name="phone"
+                                autoComplete="off"
                                 value={phone}
                                 onChange={onChange}
                                 className="bg-neutral-2 border outline-0 border-gray-300 focus:ring-orange-2 focus:ring-2 text-gray-900 text-base rounded-[12px] block w-full pl-10 p-2"
@@ -236,41 +272,33 @@ const RegisterNeighbour = () => {
                             />
                         </div>
                     </div>
-                    <div className="w-5/6">
+                    <div className="w-5/6 relative">
                         <label
-                            htmlFor="neighbourbBirthdate"
+                            htmlFor="neighbourbBirthDay"
                             className="block mb-2 text-xs font-bold text-gray-900"
                         >
                             Fecha de nacimiento
                         </label>
-                        <div className="relative">
-                            <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                                <img src={Calendar} alt="" />
-                            </div>
-                            <input
-                                type="text"
-                                id="neighbourBirthdate"
-                                name="birthdate"
-                                value={birthdate}
-                                onChange={onChange}
-                                className="bg-neutral-2 border outline-0 border-gray-300 focus:ring-orange-2 focus:ring-2 text-gray-900 text-base rounded-[12px] block w-full pl-10 p-2"
-                                placeholder="Ej: 13/01/1990"
-                            />
-                        </div>
+                        <DatePicker
+                            options={options}
+                            onChange={handleChangeDate}
+                            show={show}
+                            setShow={handleClose}
+                        />
                     </div>
-                    <div class="flex items-center w-5/6 py-8">
+                    <div className="flex items-center w-5/6 py-8">
                         <input
                             checked={checked}
                             onChange={handleCheckedChange}
                             id="checked-checkbox"
                             type="checkbox"
-                            class="w-4 h-4 accent-orange-1 p-1 text-white border-gray-300"
+                            className="w-4 h-4 accent-orange-1 p-1 text-white border-gray-300"
                         />
                         <label
-                            for="checked-checkbox"
-                            class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                            htmlFor="checked-checkbox"
+                            className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                         >
-                            Aceptar términos y privacidad
+                            Aceptar política de privacidad de datos
                         </label>
                     </div>
                     <div
@@ -279,12 +307,22 @@ const RegisterNeighbour = () => {
                     >
                         <div className="flex items-center">
                             <div className="mr-2">
-                                {errorIcon === "firstName" && <FaUserCircle />}
-                                {errorIcon === "lastName" && <FaUserCircle />}
-                                {errorIcon === "username" && <HiOutlineMail />}
+                                {errorIcon === "firstName" && (
+                                    <img src={TextWhite} alt="" />
+                                )}
+                                {errorIcon === "lastName" && (
+                                    <img src={TextWhite} alt="" />
+                                )}
+                                {errorIcon === "phone" && (
+                                    <img src={PhoneWhite} alt="" />
+                                )}
+                                {errorIcon === "username" && <FaUserCircle />}
                                 {errorIcon === "email" && <HiOutlineMail />}
                                 {errorIcon === "password" && <MdPassword />}
                                 {errorIcon === "password2" && <MdPassword />}
+                                {errorIcon === "birthdate" && (
+                                    <BsCalendar2Fill />
+                                )}
                                 {errorIcon === "checked" && (
                                     <FaExclamationCircle />
                                 )}
@@ -293,13 +331,19 @@ const RegisterNeighbour = () => {
                         </div>
                     </div>
                 </div>
-                <div className="w-5/6">
+                <div className="w-full flex flex-col gap-3 justify-center items-center py-6">
                     <button
                         type="submit"
-                        className="text-white text-[17px] w-full my-8 bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 rounded-[12px] p-2.5"
+                        className="text-white w-5/6 text-[17px] bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 rounded-[12px] p-2.5"
                     >
                         Registrarse
                     </button>
+                    <span
+                        className="text-neutral-5 text-[13px] font-semibold"
+                        onClick={() => navigate("/login")}
+                    >
+                        Iniciar sesión
+                    </span>
                 </div>
             </form>
         </div>
