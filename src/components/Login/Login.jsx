@@ -6,7 +6,7 @@ import { MdPassword } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Bridge from "../../assets/svgs/Bridge.svg";
-import { reset } from "../../features/auth/authSlice";
+import { login, reset } from "../../features/auth/authSlice";
 
 const Login = () => {
     const [formData, setFormData] = useState({
@@ -26,7 +26,7 @@ const Login = () => {
     };
     const onSubmit = (e) => {
         e.preventDefault();
-        // dispatch(login(formData));
+        dispatch(login(formData));
         console.log(formData);
     };
 
@@ -126,9 +126,9 @@ const Login = () => {
                 <div className="w-full flex flex-col gap-3 justify-center items-center py-6">
                     <button
                         type="submit"
-                        className="text-white w-5/6 font-semibold text-[17px] bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 rounded-[12px] p-2.5"
+                        className="text-white w-5/6 font-bold text-[17px] bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 rounded-[12px] p-2.5"
                     >
-                        Iniciar sesión
+                        Acceder
                     </button>
                     <span
                         className="text-neutral-5 text-[13px] font-semibold"
