@@ -10,6 +10,7 @@ const initialState = {
   isSuccess: false,
   isLoading: false,
   errorMessage: "",
+  isRegistered: false,
 };
 
 export const authSlice = createSlice({
@@ -41,6 +42,7 @@ export const authSlice = createSlice({
         state.isSuccess = true;
         state.isError = false;
         state.isLoading = false;
+        state.isRegistered = true;
       })
       .addCase(registerUser.rejected, (state, action) => {
         state.isError = true;
@@ -62,14 +64,17 @@ export const authSlice = createSlice({
   },
 });
 
-export const login = createAsyncThunk("auth/loginUser", async (user, thunkAPI) => {
-  try {
-    return await authService.login(user);
-  } catch (error) {
-    console.error(error);
-    return thunkAPI.rejectWithValue(error.response.data);
+export const login = createAsyncThunk(
+  "auth/loginUser",
+  async (user, thunkAPI) => {
+    try {
+      return await authService.login(user);
+    } catch (error) {
+      console.error(error);
+      return thunkAPI.rejectWithValue(error.response.data);
+    }
   }
-});
+);
 
 export const logout = createAsyncThunk("auth/logoutUser", async () => {
   try {
