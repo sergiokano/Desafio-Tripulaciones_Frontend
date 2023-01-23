@@ -15,7 +15,7 @@ const IssueStep1 = ({ setStep, file, setFile }) => {
                 <img src={IssueStep1Progress} alt="" />
             </div>
             {!file && (
-                <div className="w-full flex flex-col gap-2 justify-center items-center py-8">
+                <div className="w-full flex flex-col gap-2 justify-center items-center py-8 h-1/6">
                     <label className="w-5/6" htmlFor="post-issue-file">
                         <span className="text-white w-full text-center text-[17px] block bg-black hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-gray-300 rounded-[12px] p-2.5">
                             Subir imagen
@@ -46,7 +46,7 @@ const IssueStep1 = ({ setStep, file, setFile }) => {
                 </div>
             )}
             {file && (
-                <div className="w-full flex flex-col gap-2 justify-center items-center py-8">
+                <div className="w-full flex flex-col gap-2 justify-center items-center py-8 h-1/6">
                     <button
                         onClick={() => setStep(2)}
                         className="text-white w-5/6 text-center text-[17px] block bg-black hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-gray-300 rounded-[12px] p-2.5"

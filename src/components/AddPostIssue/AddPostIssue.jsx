@@ -6,19 +6,48 @@ import IssueStep4 from "./IssueStep4/IssueStep4";
 const AddPostIssue = () => {
     const [step, setStep] = useState(1);
     const [file, setFile] = useState();
+    const [formData, setFormData] = useState({
+        category: "",
+        subCategory: "",
+        subCategoryDetail: "",
+    });
     return (
         <div className="h-screen w-screen">
             {step === 1 && (
-                <IssueStep1 setStep={setStep} file={file} setFile={setFile} />
+                <IssueStep1
+                    setStep={setStep}
+                    file={file}
+                    setFile={setFile}
+                    formData={formData}
+                    setFormData={setFormData}
+                />
             )}
             {step === 2 && (
-                <IssueStep2 setStep={setStep} file={file} setFile={setFile} />
+                <IssueStep2
+                    setStep={setStep}
+                    file={file}
+                    setFile={setFile}
+                    formData={formData}
+                    setFormData={setFormData}
+                />
             )}
             {step === 3 && (
-                <IssueStep4 setStep={setStep} file={file} setFile={setFile} />
+                <IssueStep4
+                    setStep={setStep}
+                    file={file}
+                    setFile={setFile}
+                    formData={formData}
+                    setFormData={setFormData}
+                />
             )}
             {step === 4 && (
-                <IssueStep4 setStep={setStep} file={file} setFile={setFile} />
+                <IssueStep4
+                    setStep={setStep}
+                    file={file}
+                    setFile={setFile}
+                    formData={formData}
+                    setFormData={setFormData}
+                />
             )}
         </div>
     );
