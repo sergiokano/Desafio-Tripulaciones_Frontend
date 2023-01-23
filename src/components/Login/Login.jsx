@@ -6,7 +6,7 @@ import { MdPassword } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Bridge from "../../assets/svgs/Bridge.svg";
-import { reset } from "../../features/auth/authSlice";
+import { login, reset } from "../../features/auth/authSlice";
 
 const Login = () => {
     const [formData, setFormData] = useState({
@@ -18,16 +18,20 @@ const Login = () => {
     const { isError, isSuccess, message } = useSelector((state) => state.auth);
 
     const dispatch = useDispatch();
+
     const onChange = (e) => {
+        if (isError) {
+            dispatch(reset());
+        }
         setFormData((prevState) => ({
             ...prevState,
             [e.target.name]: e.target.value,
         }));
     };
+
     const onSubmit = (e) => {
         e.preventDefault();
-        // dispatch(login(formData));
-        console.log(formData);
+        dispatch(login(formData));
     };
 
     useEffect(() => {
@@ -43,7 +47,7 @@ const Login = () => {
             }, 2000);
         }
 
-        dispatch(reset());
+        // dispatch(reset());
     }, [isError, isSuccess, message]);
 
     return (
@@ -53,7 +57,11 @@ const Login = () => {
                     ¡Adelante! Estás en tu casa
                 </span>
             </div>
-            <form className="flex-1 flex flex-col" onSubmit={onSubmit}>
+            <form
+                className="flex-1 flex flex-col"
+                onSubmit={onSubmit}
+                autoComplete="off"
+            >
                 <div className="flex-1 bg-neutral-1 flex flex-col items-center">
                     <img src={Bridge} alt="" className="w-10/12 mt-12" />
                     <div className="flex flex-col w-5/6 mt-10 gap-2">
@@ -102,21 +110,27 @@ const Login = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="flex-1 w-full flex flex-col-reverse">
+                    <div
+                        className="my-5 flex-1 w-full flex flex-col-reverse"
+                        style={{ display: isError ? "block" : "none" }}
+                    >
                         {/* Este div de aquí debajo te lod ejo para que lo uses para ponerle el error del back. Si no hay error este div no debería salir */}
-                        <div className="w-full bg-orange-1 py-4 px-6 text-white flex gap-3 items-center">
-                            <div className="w-full flex items-center gap-4">
+                        <div className="w-full bg-orange-1 py-4 px-6 text-white flex items-center justify-between">
+                            <div className="flex items-center gap-4">
                                 <div>
                                     <HiOutlineMail className="text-[22px]" />
                                 </div>
                                 <span className="text-sm">
-                                    {
-                                        "Puede que todavía no seas miembro de SomBarri"
-                                    }
+                                    Correo y/o contraseña incorrectos. <br />
+                                    Puede que todavía no seas miembro de
+                                    SomBarri
                                 </span>
                             </div>
-                            <div>
-                                <button className="text-[13px] p-1 border-white border rounded-[20px] px-2">
+                            <div className="flex items-center">
+                                <button
+                                    className="text-[13px] p-1 border-white border rounded-[20px] px-2  hover:bg-orange-2 "
+                                    onClick={() => navigate("/register")}
+                                >
                                     Registrarse
                                 </button>
                             </div>
@@ -126,13 +140,14 @@ const Login = () => {
                 <div className="w-full flex flex-col gap-3 justify-center items-center py-6">
                     <button
                         type="submit"
-                        className="text-white w-5/6 font-semibold text-[17px] bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 rounded-[12px] p-2.5"
+                        className="text-white w-5/6 text-[17px] bg-black hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-gray-300 rounded-[12px] p-2.5"
                     >
                         Iniciar sesión
                     </button>
                     <span
-                        className="text-neutral-5 text-[13px] font-semibold"
+                        className="text-neutral-5 text-[13px] font-semibold hover:text-gray-900"
                         onClick={() => navigate("/register")}
+                        style={{ cursor: "pointer" }}
                     >
                         Registrarse
                     </span>

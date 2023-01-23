@@ -1,0 +1,11 @@
+#date {
+    background-color: rgb(226 226 226);
+    border-radius: 12px;
+    border-width: 1px;
+    outline-width: 0px;
+    border-color: rgb(209 213 219);
+
+    &:focus {
+        border-color: rgb(242 135 5);
+    }
+}

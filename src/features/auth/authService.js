@@ -6,7 +6,6 @@ const login = async (userData) => {
   if (res.data) {
     localStorage.setItem("user", JSON.stringify(res.data));
   }
-  console.log(res.data);
   return res.data;
 };
 
@@ -21,16 +20,22 @@ const logout = async () => {
   return res.data;
 };
 
-
-const register = async (userData) => {
-  console.log(userData)
+const registerUser = async (userData) => {
   const res = await axios.post(API_URL + "/users/createUser", userData);
+
+  return res.data;
+};
+
+const registerAssociation = async (userData) => {
+  const res = await axios.post(API_URL + "/users/createAssociation", userData);
+
   return res.data;
 };
 
 const authService = {
   login,
   logout,
-  register,
+  registerUser,
+  registerAssociation
 };
 export default authService;
