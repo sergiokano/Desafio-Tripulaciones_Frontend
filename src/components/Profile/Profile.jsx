@@ -1,48 +1,35 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { getInfo } from "../../features/auth/authSlice";
+import React, { useState } from "react";
+import ProfileView from "./ProfileView/ProfileView";
+import ProfileActivity from "./ProfileActivity/ProfileActivity";
 
 const Profile = () => {
-  const { user } = useSelector((state) => state.auth);
-  const { posts} = useSelector(
-    (state) => state.posts
-  );
+  const [isView, setIsView] = useState(true);
+  return (
+    <div className="flex justify-center w-screen h-screen">
+      <div className="flex flex-col items-center w-full">
+        <div className="w-5/6 flex bg-[#D9D9D9] rounded-[12px] leading-7 text-[17px] my-7">
+          <span
+            className={`flex-1 py-2 text-center font-semibold rounded-[12px] ${
+              isView ? "bg-orange-1 text-white" : "bg-[#D9D9D9] text-black"
+            }`}
+            onClick={() => setIsView(true)}
+          >
+            Mi actividad
+          </span>
+          <span
+            className={`flex-1 py-2 text-center font-semibold rounded-[12px] ${
+              !isView ? "bg-orange-1 text-white" : "bg-[#D9D9D9] text-black"
+            }`}
+            onClick={() => setIsView(false)}
+          >
+            Mi barrio
+          </span>
+        </div>
 
-  const dispatch = useDispatch();
-  const API_URL = "http://localhost:8080/";
-
-  useEffect(() => {
-    dispatch(getInfo());
-  }, [posts]);
-
-  if (!user) {
-    return <p>Loading...</p>;
-  }
-
-  const post = user.user.postIds.map((post) => {
-    return (
-      <div key={post._id}>
-        <div>
-          {post.image_path && (
-            <div>
-              <img src={API_URL + post.image_path} alt="" />
-            </div>
-          )}
-          <div>
-            <h3>{post.incidence}</h3>
-            <p>{post.description}</p>
-          </div>
+        <div className="flex-1 w-full flex flex-col">
+          {isView ? <ProfileView /> : <ProfileActivity />}
         </div>
       </div>
-    );
-  });
-
-  return (
-    <div>
-      <p>{user.user.firstName}</p>
-      <p>Email: {user.user.email}</p>
-      <p>Incidencias reportadas: {user?.user.postIds.length}</p>
-      {post}
     </div>
   );
 };
