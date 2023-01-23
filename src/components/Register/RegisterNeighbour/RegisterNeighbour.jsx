@@ -2,13 +2,11 @@ import React, { useState } from "react";
 import { FaRegUserCircle } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import { MdPassword } from "react-icons/md";
-import { useNavigate } from "react-router-dom";
 import Calendar from "../../../assets/svgs/Calendar.svg";
 import Phone from "../../../assets/svgs/Phone.svg";
 import Text from "../../../assets/svgs/Text.svg";
 
 const RegisterNeighbour = () => {
-    const navigate = useNavigate();
     const [checked, setChecked] = useState(false);
     const [formData, setFormData] = useState({
         username: "",
@@ -54,7 +52,7 @@ const RegisterNeighbour = () => {
                 className="flex-1 flex flex-col items-center"
                 onSubmit={onSubmit}
             >
-                <div className="flex-1 flex flex-col items-center gap-2 bg-neutral-1 pt-4 w-full">
+                <div className="flex-1 flex flex-col items-center gap-2 bg-neutral-1 py-4 w-full">
                     <div className="w-5/6">
                         <label
                             htmlFor="neighbourUser"
@@ -231,44 +229,30 @@ const RegisterNeighbour = () => {
                             />
                         </div>
                     </div>
-                    <div className="flex items-center w-5/6 py-8">
+                    <div class="flex items-center w-5/6 py-8">
                         <input
                             checked={checked}
                             onChange={handleCheckedChange}
                             id="checked-checkbox"
                             type="checkbox"
                             value=""
-                            className="w-4 h-4 accent-orange-1 p-1 text-white border-gray-300"
+                            class="w-4 h-4 accent-orange-1 p-1 text-white border-gray-300"
                         />
                         <label
-                            htmlFor="checked-checkbox"
-                            className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                            for="checked-checkbox"
+                            class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                         >
                             Aceptar políticas de privacidad
                         </label>
                     </div>
-                    <div className="w-full bg-orange-1 py-4 px-6 flex items-center gap-4 text-white">
-                        <div>
-                            <FaRegUserCircle className="text-[22px]" />
-                        </div>
-                        <span className="text-sm">
-                            {"El nombre de usuario no puede estar vacío"}
-                        </span>
-                    </div>
                 </div>
-                <div className="w-5/6 flex flex-col gap-3 justify-center items-center py-6">
+                <div className="w-5/6">
                     <button
                         type="submit"
-                        className="text-white w-5/6 font-semibold text-[17px] bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 rounded-[12px] p-2.5"
+                        className="text-white w-full my-8 bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-[12px] text-sm p-2.5"
                     >
                         Registrarse
                     </button>
-                    <span
-                        className="text-neutral-5 text-[13px] font-semibold"
-                        onClick={() => navigate("/login")}
-                    >
-                        Inicio sesión
-                    </span>
                 </div>
             </form>
         </div>
