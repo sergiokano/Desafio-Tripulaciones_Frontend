@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import IssueStep1 from "./IssueStep1/IssueStep1";
 import IssueStep2 from "./IssueStep2/IssueStep2";
+import IssueStep3 from "./IssueStep3/IssueStep3";
 import IssueStep4 from "./IssueStep4/IssueStep4";
 
 const AddPostIssue = () => {
@@ -10,6 +11,8 @@ const AddPostIssue = () => {
         category: "",
         subCategory: "",
         subCategoryDetail: "",
+        desc: "",
+        title: "",
     });
     return (
         <div className="h-screen w-screen">
@@ -32,7 +35,7 @@ const AddPostIssue = () => {
                 />
             )}
             {step === 3 && (
-                <IssueStep4
+                <IssueStep3
                     setStep={setStep}
                     file={file}
                     setFile={setFile}
