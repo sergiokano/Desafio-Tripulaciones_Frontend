@@ -34,7 +34,7 @@ const IssueStep3 = ({ setStep, formData, setFormData }) => {
                 </div>
                 <div className="flex-1 flex justify-center py-9">
                     <div className="w-5/6 relative">
-                        <div className="absolute left-0 top-0 flex items-center mt-3 pl-3 pointer-events-none">
+                        <div className="absolute left-0 top-0 flex items-center mt-3 pl-2 pointer-events-none">
                             <img src={Note} alt="" />
                         </div>
                         <textarea
