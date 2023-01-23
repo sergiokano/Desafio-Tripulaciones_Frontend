@@ -315,8 +315,9 @@ const RegisterAssociation = () => {
                         Registrarse
                     </button>
                     <span
-                        className="text-neutral-5 text-[13px] font-semibold"
+                        className="text-neutral-5 text-[13px] font-semibold hover:text-gray-900"
                         onClick={() => navigate("/login")}
+                        style={{ cursor: "pointer" }}
                     >
                         Iniciar sesión
                     </span>

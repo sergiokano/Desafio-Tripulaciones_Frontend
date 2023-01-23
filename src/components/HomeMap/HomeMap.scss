@@ -1,0 +1,20 @@
+.closed.bottomDivMap {
+    height: 0px;
+    overflow: hidden;
+    transition: height 0.5s ease;
+}
+
+.bottomDivMap {
+    height: 160px;
+    transition: height 0.5s ease;
+}
+
+.showErrorMessageMap {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.hideErrorMessageMap {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}

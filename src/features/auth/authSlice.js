@@ -68,11 +68,12 @@ export const authSlice = createSlice({
   },
 });
 
-export const login = createAsyncThunk("auth/loginUser", async (user) => {
+export const login = createAsyncThunk("auth/loginUser", async (user, thunkAPI) => {
   try {
     return await authService.login(user);
   } catch (error) {
     console.error(error);
+    return thunkAPI.rejectWithValue(error.response.data);
   }
 });
 
