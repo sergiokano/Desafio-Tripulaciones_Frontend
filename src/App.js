@@ -23,7 +23,7 @@ function App() {
                             element={<AddPostIssue />}
                         />
                         <Route
-                            path="/registerOK"
+                            path="/registerSuccess"
                             element={<RegisterSuccesful />}
                         />
                     </Routes>

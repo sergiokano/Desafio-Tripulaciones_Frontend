@@ -15,7 +15,7 @@ const Login = () => {
   });
   const navigate = useNavigate();
   const { email, password } = formData;
-  const { isError, isSuccess, message } = useSelector((state) => state.auth);
+  const { isError, isRegistered, message } = useSelector((state) => state.auth);
 
   const dispatch = useDispatch();
 
@@ -35,24 +35,14 @@ const Login = () => {
   };
 
   useEffect(() => {
-    if (isError) {
-      notification.error({ message: "Error", description: message });
+    if (!isRegistered) {
+      navigate("/");
     }
-
-    if (isSuccess) {
-      notification.success({ message: "Success", description: message });
-
-      setTimeout(() => {
-        navigate("/profile");
-      }, 2000);
-    }
-
     // dispatch(reset());
-  }, [isError, isSuccess, message]);
+  }, [isError, isRegistered, message]);
 
   return (
     <div className="w-screem h-screen flex flex-col">
-     
       <form
         className="flex-1 flex flex-col"
         onSubmit={onSubmit}
@@ -68,7 +58,7 @@ const Login = () => {
             </div>
           </div>
           <div className="w-full flex flex-col gap-3 justify-center items-center py-6">
-          <span className="font-neutral text-[14px] ">
+            <span className="font-neutral text-[14px] ">
               Te has registrado correctamente.
             </span>
             <span className="font-neutral text-[14px]">
