@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import postsService from "./postsService";
-
+ 
 const initialState = {
     isError: false,
     isSuccess: false,
@@ -23,7 +23,8 @@ export const postsSlice = createSlice({
     extraReducers: (builder) => {
         builder.addCase(createPost.fulfilled, (state) => {
             state.isSuccess = true;
-        });
+        })
+        
     },
 });
 
@@ -34,6 +35,7 @@ export const createPost = createAsyncThunk("posts/createPost", async (data) => {
         console.error(error);
     }
 });
+
 
 export const { reset } = postsSlice.actions;
 export default postsSlice.reducer;
