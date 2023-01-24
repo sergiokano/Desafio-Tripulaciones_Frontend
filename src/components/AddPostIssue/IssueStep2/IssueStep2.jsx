@@ -120,7 +120,25 @@ const IssueStep2 = ({ setStep, formData, setFormData }) => {
             </div>
             <div className="w-full flex flex-col gap-2 justify-center items-center py-8 h-1/6">
                 <button
-                    onClick={() => setStep(3)}
+                    onClick={() => {
+                        const selectSubCategory =
+                            document.getElementById("subCategories");
+                        const selectSubCategoryDetail = document.getElementById(
+                            "subCategoriesDetail"
+                        );
+                        setFormData({
+                            ...formData,
+                            categoryText:
+                                selectSubCategory.options[
+                                    selectSubCategory.selectedIndex
+                                ].text,
+                            subCategoryText:
+                                selectSubCategoryDetail.options[
+                                    selectSubCategoryDetail.selectedIndex
+                                ].text,
+                        });
+                        setStep(3);
+                    }}
                     disabled={formData.subCategoryDetail === ""}
                     className="text-white w-5/6 text-center disabled:opacity-70 text-[17px] block bg-black hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-gray-300 rounded-[12px] p-2.5"
                 >

@@ -7,6 +7,8 @@ const createPost = async (data) => {
     const formData = new FormData();
     formData.append("incidence", data.title);
     formData.append("description", data.desc);
+    formData.append("category", data.categoryText);
+    formData.append("subCategory", data.subCategoryText);
     formData.append("address", data.address);
     formData.append(
         "code",
@@ -36,13 +38,12 @@ const getAllPosts = async () => {
 const getById = async (_id) => {
     const res = await axios.get(API_URL + "/posts/id/" + _id);
     return res.data;
-  };
-
+};
 
 const postsService = {
     createPost,
     getAllPosts,
-    getById
+    getById,
 };
 
 export default postsService;
