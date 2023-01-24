@@ -286,7 +286,7 @@ const RegisterNeighbour = () => {
                             setShow={handleClose}
                         />
                     </div>
-                    <div class="flex items-center w-5/6 py-8">
+                    <div className="flex items-center w-5/6 py-8">
                         <input
                             checked={checked}
                             onChange={handleCheckedChange}
@@ -295,8 +295,8 @@ const RegisterNeighbour = () => {
                             className="w-4 h-4 accent-orange-1 p-1 text-white border-gray-300"
                         />
                         <label
-                            for="checked-checkbox"
-                            class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                            htmlFor="checked-checkbox"
+                            className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                         >
                             Aceptar política de privacidad de datos
                         </label>
