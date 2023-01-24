@@ -5,16 +5,21 @@ import GraphicsLayer from "@arcgis/core/layers/GraphicsLayer";
 import Map from "@arcgis/core/Map";
 import MapView from "@arcgis/core/views/MapView";
 import React, { createRef, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import IncidenceWhite from "../../../assets/svgs/IncidenceWhite.svg";
 import MarkerIcon from "../../../assets/svgs/MarkerIcon.svg";
 import Note from "../../../assets/svgs/Note.svg";
+import { createPost } from "../../../features/posts/postsSlice";
 import HeaderReportIssue from "../HeaderReportIssue/HeaderReportIssue";
 
 const IssueStep4 = ({ setStep, formData, setFormData, file }) => {
     esriConfig.apiKey = process.env.REACT_APP_ARCGIS_API_KEY;
     const viewDiv = createRef();
+    const dispatch = useDispatch();
 
-    const handleSaveIssue = () => {};
+    const handleSaveIssue = () => {
+        dispatch(createPost({ ...formData, file }));
+    };
 
     useEffect(() => {
         const map = new Map({
@@ -23,8 +28,8 @@ const IssueStep4 = ({ setStep, formData, setFormData, file }) => {
 
         new MapView({
             map: map,
-            center: [-0.405189, 39.483755], // Longitude, latitude
-            zoom: 16, // Zoom level
+            center: [formData.longitude, formData.latitude], // Longitude, latitude
+            zoom: 18, // Zoom level
             container: viewDiv.current, // Div element
         });
 
@@ -35,8 +40,8 @@ const IssueStep4 = ({ setStep, formData, setFormData, file }) => {
 
         const point = {
             type: "point",
-            longitude: -0.405189,
-            latitude: 39.483755,
+            longitude: formData.longitude,
+            latitude: formData.latitude,
         };
 
         const symbol = {
@@ -72,7 +77,7 @@ const IssueStep4 = ({ setStep, formData, setFormData, file }) => {
                 <div>
                     <img src={MarkerIcon} alt="" />
                 </div>
-                <span>Calle</span>
+                <span>{formData.address}</span>
             </div>
             <div className="pl-10 relative py-4 pr-7 flex">
                 <div className="absolute left-0 top-0 flex items-center mt-5 pl-6 pointer-events-none">
@@ -87,10 +92,10 @@ const IssueStep4 = ({ setStep, formData, setFormData, file }) => {
             </div>
             <div className="w-full flex flex-col gap-2 justify-center items-center py-8 h-1/6">
                 <button
-                    onClick={() => handleSaveIssue}
+                    onClick={() => handleSaveIssue()}
                     className="text-white w-5/6 text-center disabled:opacity-70 text-[17px] block bg-black hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-gray-300 rounded-[12px] p-2.5"
                 >
-                    Siguiente
+                    Publicar
                 </button>
             </div>
         </div>

@@ -46,7 +46,7 @@ const IssueStep3 = ({ setStep, formData, setFormData }) => {
                                     desc: e.target.value,
                                 })
                             }
-                            class="block resize-none bg-neutral-2 h-full pl-10 p-2.5 w-full outline-0 border-gray-300 focus:ring-orange-2 text-base text-gray-900 rounded-[12px] border"
+                            className="block resize-none bg-neutral-2 h-full pl-10 p-2.5 w-full outline-0 border-gray-300 focus:ring-orange-2 text-base text-gray-900 rounded-[12px] border"
                             placeholder="Describe la incidencia"
                         ></textarea>
                     </div>
