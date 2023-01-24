@@ -7,7 +7,7 @@ const initialState = {
   isLoading: false,
   errorMessage: "",
   isRegistered: false,
-  post: {},
+  post: null,
 };
 
 export const postsSlice = createSlice({

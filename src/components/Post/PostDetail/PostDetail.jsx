@@ -1,9 +1,7 @@
 import React, { useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-
-import Google from "../../../assets/svgs/Google.svg";
+import { useParams } from "react-router-dom";
 import Graffiti from "../../../assets/pngs/graffiti.png";
-import Polifilo from "../../../assets/pngs/polifilo.png";
+// import Polifilo from "../../../assets/pngs/polifilo.png";
 import { getById } from "../../../features/posts/postsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "../../Header/Header";
@@ -16,11 +14,13 @@ const PostDetail = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    console.log("post");
     dispatch(getById(_id));
   }, []);
 
-  console.log("post", post);
-
+  if (!post) {
+    return;
+  }
   return (
     <div className="flex flex-col items-center w-screen h-screen">
       <Header />
@@ -39,7 +39,8 @@ const PostDetail = () => {
               <MdOutlinePlace className="text-20 mr-0.5" />
               <span className="text-[11px]">{post.address}</span>
               <span className="text-[11px]  relative ml-auto ">
-                Nº Validaciones: {post.verification.length}
+                Nº Validaciones:
+                {/* {post ? post.verification.length : null} */}
               </span>
             </span>
             <div className="ml-6 mt-3 text-[13px] text-blue-2 font-bold">
@@ -57,21 +58,22 @@ const PostDetail = () => {
                     {post.description}
                   </span>
                 </div>
-             
+
                 {post.comments.length > 0 ? (
-                <div className="border border-t-neutral-2 ">
-                  <div className="flex flex-col  ml-6 mt-3.5 mb-3.5">
-                    <div className="flex flex-row space-x-2 items-center">
-                      <MdOutlineModeComment />
-                      <span className="font-bold text-[11px]">
-                        {post.userId}
+                  <div className="border border-t-neutral-2 ">
+                    <div className="flex flex-col  ml-6 mt-3.5 mb-3.5">
+                      <div className="flex flex-row space-x-2 items-center">
+                        <MdOutlineModeComment />
+                        <span className="font-bold text-[11px]">
+                          {post.userId}
+                        </span>
+                      </div>
+                      <span className="relative font-text leading-6 ">
+                        {post.description}
                       </span>
                     </div>
-                    <span className="relative font-text leading-6 ">
-                      {post.description}
-                    </span>
                   </div>
-                </div>) : null}
+                ) : null}
               </div>
             </div>
           </div>
