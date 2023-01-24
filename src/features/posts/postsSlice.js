@@ -1,11 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import postsService from "./postsService";
 
-const token = JSON.parse(localStorage.getItem("token"));
-
 const initialState = {
-    user: null,
-    token: token ? token : null,
     isError: false,
     isSuccess: false,
     isLoading: false,
@@ -25,7 +21,7 @@ export const postsSlice = createSlice({
         },
     },
     extraReducers: (builder) => {
-        builder.addCase(createPost.fulfilled, (state, action) => {
+        builder.addCase(createPost.fulfilled, (state) => {
             state.isSuccess = true;
         });
     },

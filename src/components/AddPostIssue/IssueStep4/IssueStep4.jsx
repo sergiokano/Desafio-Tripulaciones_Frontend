@@ -14,7 +14,7 @@ import HeaderReportIssue from "../HeaderReportIssue/HeaderReportIssue";
 
 const IssueStep4 = ({ setStep, formData, file }) => {
     esriConfig.apiKey = process.env.REACT_APP_ARCGIS_API_KEY;
-    const { isSuccesful } = useSelector((state) => state.posts);
+    const { isSuccess } = useSelector((state) => state.posts);
     const viewDiv = createRef();
     const dispatch = useDispatch();
 
@@ -23,10 +23,10 @@ const IssueStep4 = ({ setStep, formData, file }) => {
     };
 
     useEffect(() => {
-        if (isSuccesful) {
+        if (isSuccess) {
             setStep(5);
         }
-    }, [isSuccesful]);
+    }, [isSuccess]);
 
     useEffect(() => {
         const map = new Map({

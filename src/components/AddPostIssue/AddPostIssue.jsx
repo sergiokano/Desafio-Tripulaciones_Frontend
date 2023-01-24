@@ -22,18 +22,33 @@ const AddPostIssue = () => {
         latitude: null,
         address: "",
     });
-    if (!state) {
-        navigate("/home-map");
-    }
 
     useEffect(() => {
-        setFormData({
-            ...formData,
-            latitude: state.latitude,
-            longitude: state.longitude,
-            address: state.address,
-        });
+        if (state) {
+            setFormData({
+                ...formData,
+                latitude: state.latitude,
+                longitude: state.longitude,
+                address: state.address,
+            });
+        }
     }, []);
+
+    if (!state) {
+        return (
+            <div className="h-screen w-screen flex flex-col gap-6 items-center justify-center">
+                <span className="w-3/4 text-center font-semibold text-[26px]">
+                    Ups! Algo no ha ocurrido como se esperaba
+                </span>
+                <button
+                    onClick={() => navigate("/home-map")}
+                    className="text-white w-1/4 text-center text-[17px] block bg-black hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-gray-300 rounded-[12px] p-2.5"
+                >
+                    Volver
+                </button>
+            </div>
+        );
+    }
 
     return (
         <div className="h-screen w-screen">
