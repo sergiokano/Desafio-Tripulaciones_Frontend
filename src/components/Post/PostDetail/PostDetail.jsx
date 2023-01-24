@@ -34,16 +34,35 @@ const PostDetail = () => {
             <span className="relative left-6 font-bold leading-6 text-[20px]">
               {post.incidence}
             </span>
-            {/* <span className="flex"> */}
-              <span className="ml-6 mr-6 mt-7 flex flex-row left-6 font-bold leading-6 items-center">
-                <MdOutlinePlace className="text-20 mr-0.5" />
-                <span className="text-[11px]">{post.address}</span>
-                <span className="text-[11px] relative ml-auto ">Nº Validaciones: {post.verification.length} </span>
+
+            <span className="ml-6 mr-6 mt-7 flex flex-row left-6 font-bold leading-6 items-center">
+              <MdOutlinePlace className="text-20 mr-0.5" />
+              <span className="text-[11px]">{post.address}</span>
+              <span className="text-[11px] relative ml-auto ">
+                Nº Validaciones: {post.verification.length}
               </span>
-            {/* </span> */}
-            <span className="relative left-10  font-text overflow-hidden leading-6 text-[15px]">
-              {post.description}
             </span>
+            {/* Cuadrado general comentarios */}
+            {/* primer coment */}
+            <div className="flex flex-col mt-12 border border-neutral-4 bg-neutral-1 ">
+              <div>
+                <div className="flex flex-col  ml-6 ">
+                  <span>{post.userId}</span>
+                  <span className="relative font-text leading-6 text-[15px] ">
+                    {post.description}
+                  </span>
+                </div>
+                {/* segundo comentario etc. */}
+                <div className="border border-t-neutral-4">
+                  <div className="flex flex-col  ml-6  ">
+                    <span>{post.userId}</span>
+                    <span className="relative font-text leading-6 text-[15px] ">
+                      {post.description}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div className="w-full flex flex-col gap-2 justify-center items-center py-8">
