@@ -79,7 +79,7 @@ const RegisterNeighbour = () => {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const { isSuccess, isError, errorMessage, errorIcon } = useSelector(
+    const { isRegistered, isError, errorMessage, errorIcon, isSuccess } = useSelector(
         (state) => state.auth
     );
 
@@ -88,9 +88,9 @@ const RegisterNeighbour = () => {
     }, []);
 
     useEffect(() => {
-        if (isSuccess) {
+        if (isRegistered) {
             dispatch(reset());
-            navigate("/login");
+            navigate("/registerSuccess");
         }
     }, [isSuccess]);
 

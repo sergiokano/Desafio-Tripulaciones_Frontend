@@ -29,6 +29,10 @@ const Login = () => {
         }));
     };
 
+    useEffect(() => {
+        dispatch(reset());
+    }, []);
+
     const onSubmit = (e) => {
         e.preventDefault();
         dispatch(login(formData));
