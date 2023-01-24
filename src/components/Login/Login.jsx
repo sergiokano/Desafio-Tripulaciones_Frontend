@@ -132,7 +132,6 @@ const Login = () => {
                             <div className="flex items-center">
                                 <button
                                     className="text-[13px] p-1 border-white border rounded-[20px] px-2  hover:bg-orange-2 "
-                                    onClick={() => navigate("/register")}
                                 >
                                     Registrarse
                                 </button>
@@ -149,7 +148,6 @@ const Login = () => {
                     </button>
                     <span
                         className="text-neutral-5 text-[13px] font-semibold hover:text-gray-900"
-                        onClick={() => navigate("/register")}
                         style={{ cursor: "pointer" }}
                     >
                         Registrarse
