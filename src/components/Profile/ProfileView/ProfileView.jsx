@@ -11,7 +11,7 @@ const ProfileView = () => {
   const { posts } = useSelector((state) => state.posts);
 
   const dispatch = useDispatch();
-  const API_URL = "http://localhost:8080/";
+  const API_URL = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     dispatch(getInfo());
