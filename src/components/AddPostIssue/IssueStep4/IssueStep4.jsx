@@ -5,21 +5,28 @@ import GraphicsLayer from "@arcgis/core/layers/GraphicsLayer";
 import Map from "@arcgis/core/Map";
 import MapView from "@arcgis/core/views/MapView";
 import React, { createRef, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import IncidenceWhite from "../../../assets/svgs/IncidenceWhite.svg";
 import MarkerIcon from "../../../assets/svgs/MarkerIcon.svg";
 import Note from "../../../assets/svgs/Note.svg";
 import { createPost } from "../../../features/posts/postsSlice";
 import HeaderReportIssue from "../HeaderReportIssue/HeaderReportIssue";
 
-const IssueStep4 = ({ setStep, formData, setFormData, file }) => {
+const IssueStep4 = ({ setStep, formData, file }) => {
     esriConfig.apiKey = process.env.REACT_APP_ARCGIS_API_KEY;
+    const { isSuccesful } = useSelector((state) => state.posts);
     const viewDiv = createRef();
     const dispatch = useDispatch();
 
     const handleSaveIssue = () => {
         dispatch(createPost({ ...formData, file }));
     };
+
+    useEffect(() => {
+        if (isSuccesful) {
+            setStep(5);
+        }
+    }, [isSuccesful]);
 
     useEffect(() => {
         const map = new Map({

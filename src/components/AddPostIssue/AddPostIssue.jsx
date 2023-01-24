@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import IssueReportedSuccesfully from "./IssueReportedSuccesfully/IssueReportedSuccesfully";
 import IssueStep1 from "./IssueStep1/IssueStep1";
 import IssueStep2 from "./IssueStep2/IssueStep2";
 import IssueStep3 from "./IssueStep3/IssueStep3";
@@ -68,6 +69,12 @@ const AddPostIssue = () => {
                     setStep={setStep}
                     file={file}
                     setFile={setFile}
+                    formData={formData}
+                    setFormData={setFormData}
+                />
+            )}
+            {step === 5 && (
+                <IssueReportedSuccesfully
                     formData={formData}
                     setFormData={setFormData}
                 />
