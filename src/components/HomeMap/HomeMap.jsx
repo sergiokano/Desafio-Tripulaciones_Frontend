@@ -6,6 +6,7 @@ import Map from "@arcgis/core/Map";
 import * as locator from "@arcgis/core/rest/locator";
 import MapView from "@arcgis/core/views/MapView";
 import React, { createRef, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Close from "../../assets/svgs/Close.svg";
 import Location from "../../assets/svgs/Location.svg";
 import MarkerIcon from "../../assets/svgs/MarkerIcon.svg";
@@ -15,9 +16,14 @@ import "./HomeMap.scss";
 const HomeMap = () => {
     esriConfig.apiKey = process.env.REACT_APP_ARCGIS_API_KEY;
     const [addressSelected, setAddressSelected] = useState("");
+    const [location, setLocation] = useState({
+        longitude: null,
+        latitude: null,
+    });
     const [validAddress, setValidAddress] = useState(false);
     const [showErrorMessage, setShowErrorMessage] = useState(false);
     const viewDiv = createRef();
+    const navigate = useNavigate();
 
     const normalizeAddress = () => {
         return addressSelected
@@ -73,6 +79,10 @@ const HomeMap = () => {
 
             const res = await locator.locationToAddress(serviceUrl, params);
             setAddressSelected(res.address);
+            setLocation({
+                longitude: event.mapPoint.longitude,
+                latitude: event.mapPoint.latitude,
+            });
             if (res.attributes.AddNum === "") {
                 setShowErrorMessage(true);
                 setValidAddress(false);
@@ -160,6 +170,15 @@ const HomeMap = () => {
                     <div className="bg-white flex justify-center gap-2 items-center py-8">
                         <button
                             type="button"
+                            onClick={() => {
+                                navigate("/report-issue", {
+                                    state: {
+                                        longitude: location.longitude,
+                                        latitude: location.latitude,
+                                        address: addressSelected,
+                                    },
+                                });
+                            }}
                             className="text-white w-5/6 text-[17px] disabled:opacity-70 bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 rounded-[12px] p-2.5"
                         >
                             Reportar

@@ -1,16 +1,28 @@
 import axios from "axios";
 const API_URL = "http://localhost:8080";
 
-const createPost = async (postData) => {
+const createPost = async (data) => {
   const user = JSON.parse(localStorage.getItem("user"));
-  const res = await axios.post(API_URL + "/posts/", postData, {
-    headers: {
-      authorization: user?.token,
-    },
+
+  const formData = new FormData();
+  formData.append("incidence", data.title);
+  formData.append("description", data.desc);
+  formData.append("address", data.address);
+  formData.append(
+    "code",
+    data.category + data.subCategory + data.subCategoryDetail
+  );
+  formData.append("longitude", data.longitude);
+  formData.append("latitude", data.latitude);
+  if (data.file) formData.append("image", data.file);
+
+  const res = await axios.post(API_URL + "/posts", formData, {
+    headers: { authorization: user.token },
   });
 
   return res.data;
 };
+
 const getAllPosts = async () => {
   const res = await axios.get(API_URL + "/posts");
 
@@ -34,47 +46,52 @@ const deletePost = async (id) => {
   return res.data;
 };
 const like = async (_id) => {
-
-    const user = JSON.parse(localStorage.getItem("user"));
-    const res = await axios.put(API_URL + "/posts/like/" + _id, {}, {
-        headers: {
-            authorization: user?.token,
-        },
-    });
-    return res.data;
-
-}
+  const user = JSON.parse(localStorage.getItem("user"));
+  const res = await axios.put(
+    API_URL + "/posts/like/" + _id,
+    {},
+    {
+      headers: {
+        authorization: user?.token,
+      },
+    }
+  );
+  return res.data;
+};
 
 const unLike = async (_id) => {
   const user = JSON.parse(localStorage.getItem("user"));
-  const res = await axios.put(API_URL + "/posts/disLike/" + _id, {}, {
+  const res = await axios.put(
+    API_URL + "/posts/disLike/" + _id,
+    {},
+    {
       headers: {
-          authorization: user?.token,
+        authorization: user?.token,
       },
-  });
-  return res.data
-}
+    }
+  );
+  return res.data;
+};
 const updatePost = async (post) => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const res = await axios.put(API_URL + "/posts/" + post.id, post, {
+    headers: {
+      authorization: user?.token,
+    },
+  });
 
-    const user = JSON.parse(localStorage.getItem("user"));
-    const res = await axios.put(API_URL + "/posts/" + post.id, post, {
-        headers: {
-            authorization: user?.token
-        }
-    })
-
-
-    return res.data
+  return res.data;
 };
 
-
 const comment = async (comment) => {
-    const user = JSON.parse(localStorage.getItem("user"));
-    const res = await axios.put(API_URL + "/posts/comments/" + comment._id, comment, 
-    { headers: { authorization: user?.token } });
-    
+  const user = JSON.parse(localStorage.getItem("user"));
+  const res = await axios.put(
+    API_URL + "/posts/comments/" + comment._id,
+    comment,
+    { headers: { authorization: user?.token } }
+  );
 
-    return res.data
+  return res.data;
 };
 
 const postsService = {
@@ -86,7 +103,7 @@ const postsService = {
   like,
   unLike,
   updatePost,
-  comment
+  comment,
 };
 
 export default postsService;

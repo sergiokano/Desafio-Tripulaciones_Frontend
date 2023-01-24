@@ -59,7 +59,7 @@ const RegisterAssociation = () => {
     useEffect(() => {
         if (isSuccess) {
             dispatch(reset());
-            navigate("/login");
+            navigate("/registerSuccess");
         }
     }, [isSuccess]);
 
