@@ -7,6 +7,7 @@ import Polifilo from "../../../assets/pngs/polifilo.png";
 import { getById } from "../../../features/posts/postsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "../../Header/Header";
+import { MdOutlinePlace } from "react-icons/md";
 
 const PostDetail = () => {
   const { post } = useSelector((state) => state.posts);
@@ -33,9 +34,13 @@ const PostDetail = () => {
             <span className="relative left-6 font-bold leading-6 text-[20px]">
               {post.incidence}
             </span>
-            <span className="relative left-6 font-bold leading-6 text-[11px]">
-              {post.address}
-            </span>
+            {/* <span className="flex"> */}
+              <span className="ml-6 mr-6 mt-7 flex flex-row left-6 font-bold leading-6 items-center">
+                <MdOutlinePlace className="text-20 mr-0.5" />
+                <span className="text-[11px]">{post.address}</span>
+                <span className="text-[11px] relative ml-auto ">Nº Validaciones: {post.verification.length} </span>
+              </span>
+            {/* </span> */}
             <span className="relative left-10  font-text overflow-hidden leading-6 text-[15px]">
               {post.description}
             </span>
