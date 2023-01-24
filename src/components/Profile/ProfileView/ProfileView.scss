@@ -34,13 +34,22 @@ order: 1;
 flex-grow: 0;
 }
        
-.logo-container {
+.vector-container {
 display: flex;
 align-items: center;
 background: #EEEEEE;
 }
+.location-container {
+    display: flex;
+    align-items: center;
+    background: #FBFBFB;
+    }
   
 .logo-img {
+    margin-right: 10px;
+    margin-left: 15px;
+}
+.loc-img {
     margin-right: 10px;
     margin-left: 15px;
 }
