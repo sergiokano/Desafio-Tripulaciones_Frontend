@@ -15,8 +15,8 @@ const IssueStep2 = ({ setStep, formData, setFormData }) => {
                         <img src={Search} alt="" className="w-8" />
                     </div>
                     <span className="text-sm">
-                        Busca el tipo concreto de incidencia usando los
-                        desplegables de abajo
+                        ¿Qué problema has encontrado? Utiliza los desplegables
+                        para que lo podamos identificar
                     </span>
                 </div>
                 <div className="w-5/6 my-3 flex-1 flex flex-col justify-center gap-6">
@@ -26,7 +26,7 @@ const IssueStep2 = ({ setStep, formData, setFormData }) => {
                             htmlFor="categories"
                             className="block mb-2 text-sm text-gray-900 font-semibold"
                         >
-                            Categoría
+                            Sobre qué quieres reportar
                         </label>
                         <select
                             onChange={(e) =>
@@ -59,7 +59,7 @@ const IssueStep2 = ({ setStep, formData, setFormData }) => {
                             htmlFor="subCategories"
                             className="block mb-2 text-sm text-gray-900 font-semibold"
                         >
-                            Subcategoría
+                            Elige una categoría
                         </label>
                         <select
                             onChange={(e) =>
@@ -88,7 +88,7 @@ const IssueStep2 = ({ setStep, formData, setFormData }) => {
                             htmlFor="subCategoriesDetail"
                             className="block mb-2 text-sm text-gray-900 font-semibold"
                         >
-                            Subcategoría específica
+                            Elige una incidencia
                         </label>
                         <select
                             onChange={(e) =>
