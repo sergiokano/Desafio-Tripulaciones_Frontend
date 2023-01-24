@@ -125,9 +125,8 @@ const Login = () => {
                                     <HiOutlineMail className="text-[22px]" />
                                 </div>
                                 <span className="text-sm">
-                                    Correo y/o contraseña incorrectos. <br />
-                                    Puede que todavía no seas miembro de
-                                    SomBarri
+                                    Datos incorrectos. 
+                                    Puede que aún no seas miembro.
                                 </span>
                             </div>
                             <div className="flex items-center">
