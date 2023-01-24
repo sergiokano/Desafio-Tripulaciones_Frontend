@@ -12,6 +12,10 @@ top: 172px;
 background: #FA642F;
 }
 
+.profile-img, .incidence-title {
+    display: inline-block;
+}
+
 .incidence-pic {
      
 width: 375px;
@@ -68,4 +72,4 @@ order: 2;
 flex-grow: 0;
 color: #008BA2;
 }
-  
+ 

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ProfileView from "./ProfileView/ProfileView";
 import ProfileActivity from "./ProfileActivity/ProfileActivity";
+import "./Profile.scss";
 
 const Profile = () => {
   const [isView, setIsView] = useState(true);
@@ -28,6 +29,10 @@ const Profile = () => {
 
         <div className="flex-1 w-full flex flex-col">
           {isView ? <ProfileView /> : <ProfileActivity />}
+          <div className="home-indicator">
+                
+                
+              </div>
         </div>
       </div>
     </div>
