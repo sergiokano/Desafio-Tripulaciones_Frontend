@@ -22,7 +22,7 @@
         "tailwind-datepicker-react": "^1.2.3"
     },
     "scripts": {
-        "start": "node --max-old-space-size=4096 react-scripts start",
+        "start": "node --max-old-space-size=4096 && react-scripts start",
         "build": "CI=false react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject"
