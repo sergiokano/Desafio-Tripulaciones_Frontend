@@ -1,11 +1,12 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Graffiti from "../../../assets/pngs/graffiti.png";
 // import Polifilo from "../../../assets/pngs/polifilo.png";
-import { getById } from "../../../features/posts/postsSlice";
-import { useDispatch, useSelector } from "react-redux";
-import Header from "../../Header/Header";
 import { MdOutlineModeComment, MdOutlinePlace } from "react-icons/md";
+import { useDispatch, useSelector } from "react-redux";
+import { getById } from "../../../features/posts/postsSlice";
+import Header from "../../Header/Header";
 
 const PostDetail = () => {
   const { post } = useSelector((state) => state.posts);
@@ -33,13 +34,12 @@ const PostDetail = () => {
             <span className="relative left-6 font-bold leading-6 text-[20px]">
               {post.incidence}
             </span>
-{console.log(post)}
+
             <span className="ml-6 mr-6 mt-7 flex flex-row left-6 font-bold leading-6 items-center">
               <MdOutlinePlace className="text-20 mr-0.5" />
               <span className="text-[11px]">{post.address}</span>
               <span className="text-[11px]  relative ml-auto ">
                 Nº Validaciones: {post.verification.length}
-
               </span>
             </span>
             <div className="ml-6 mt-3 text-[13px] text-blue-2 font-bold">
@@ -53,7 +53,7 @@ const PostDetail = () => {
                     <MdOutlineModeComment />
                     <span className="font-bold text-[11px]">{post.userId.username}</span>
                   </div>
-                  <span className="relative font-text leading-6m whitespace-pre-wrap">
+                  <span className="relative font-text leading-6">
                     {post.description}
                   </span>
                 </div>
@@ -64,10 +64,10 @@ const PostDetail = () => {
                       <div className="flex flex-row space-x-2 items-center">
                         <MdOutlineModeComment />
                         <span className="font-bold text-[11px]">
-                          {post.userId}
+                          {post.userId.username}
                         </span>
                       </div>
-                      <span className="relative font-text leading-6 ">
+                      <span className="relative font-text leading-6 whitespace-pre-wrap ">
                         {post.description}
                       </span>
                     </div>

@@ -10,6 +10,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Close from "../../assets/svgs/Close.svg";
 import IncidenceBlack from "../../assets/svgs/IncidenceBlack.svg";
+import IncidenceWhite from "../../assets/svgs/IncidenceWhite.svg";
+import Info from "../../assets/svgs/Info.svg";
 import Location from "../../assets/svgs/Location.svg";
 import MarkerIcon from "../../assets/svgs/MarkerIcon.svg";
 import { getAllPosts } from "../../features/posts/postsSlice";
@@ -101,6 +103,7 @@ const HomeMap = () => {
             const hit = await view.hitTest(event, { include: graphicsLayer });
             if (hit.results.length > 0) {
                 setType("oldIncidence");
+                graphicsLayerMarker.removeAll();
                 setValidAddress(true);
                 const graphic = hit.results[0].graphic;
                 setOldIncidence({
@@ -230,9 +233,10 @@ const HomeMap = () => {
                                         },
                                     });
                                 }}
-                                className="text-white w-5/6 text-[17px] disabled:opacity-70 bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 rounded-[12px] p-2.5"
+                                className="text-white w-5/6 text-[17px] disabled:opacity-70 bg-black flex justify-center items-center gap-2.5 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 rounded-[12px] p-2.5"
                             >
-                                Reportar
+                                <img src={IncidenceWhite} alt="" />
+                                <span>Reportar</span>
                             </button>
                         )}
                         {type === "oldIncidence" && (
@@ -241,9 +245,10 @@ const HomeMap = () => {
                                 onClick={() => {
                                     navigate(`/post/${oldIncidence._id}`);
                                 }}
-                                className="text-white w-5/6 text-[17px] disabled:opacity-70 bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 rounded-[12px] p-2.5"
+                                className="text-neutral-5 w-5/6 text-[17px] disabled:opacity-70 flex justify-center items-center gap-2.5 bg-white hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-300 rounded-[12px] p-2.5 border border-neutral-5"
                             >
-                                Ver detalles
+                                <img src={Info} alt="" />
+                                <span>Ver detalles</span>
                             </button>
                         )}
                     </div>

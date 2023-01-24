@@ -4,6 +4,7 @@ import { getInfo } from "../../../features/auth/authSlice";
 import "./ProfileView.scss";
 import Vector from "../../../assets/Vector.svg";
 import Location from "../../../assets/location.svg";
+import Profile from "../../../assets/profile.svg";
 
 const ProfileView = () => {
   const { user } = useSelector((state) => state.auth);
@@ -40,8 +41,8 @@ const ProfileView = () => {
                 <h3 className="indidence-title">{post.incidence}</h3>
               </div>
               <div className="location-container">
-              <img src={Location} alt="Logo" className="loc-img" />
-              <p className="description-title">{post.address}</p>
+                <img src={Location} alt="Logo" className="loc-img" />
+                <p className="description-title">{post.address}</p>
               </div>
             </div>
           </div>
@@ -52,6 +53,7 @@ const ProfileView = () => {
 
   return (
     <div>
+      
       <p className="incidence-title">{user.user.firstName}</p>
 
       {post}
