@@ -24,11 +24,11 @@ const PostDetail = () => {
   return (
     <div className="flex flex-col items-center w-screen h-screen">
       <Header />
-      <div className="w-screen h-screen flex flex-col">
-        <div className="flex-1 flex-col mt-6 justify-center ">
-          <div className="flex ml-6 flex-row gap-6 items-center w-full overflow-x-scroll">
-            <img src={Graffiti} alt="" className="w-5/5" />
-            <img src={Graffiti} alt="" className="w-5/5" />
+      <div className="w-screen h-screen flex flex-col overflow-hidden">
+        <div className="flex-1 flex-col mt-6  justify-center ">
+          <div className="flex  flex-row gap-6 items-center overflow-x-scroll">
+            <img src={Graffiti} alt="" className="w-5/5 ml-6" />
+            <img src={Graffiti} alt="" className="w-5/5 mr-6" />
           </div>
           <div className="w-full mt-6 flex flex-col">
             <span className="relative left-6 font-bold leading-6 text-[20px]">
@@ -39,8 +39,8 @@ const PostDetail = () => {
               <MdOutlinePlace className="text-20 mr-0.5" />
               <span className="text-[11px]">{post.address}</span>
               <span className="text-[11px]  relative ml-auto ">
-                Nº Validaciones:
-                {/* {post ? post.verification.length : null} */}
+                Nº Validaciones: {post.verification.length}
+
               </span>
             </span>
             <div className="ml-6 mt-3 text-[13px] text-blue-2 font-bold">
