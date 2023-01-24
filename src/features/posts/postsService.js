@@ -23,7 +23,18 @@ const createPost = async (data) => {
     return res.data;
 };
 
+const getAllPosts = async () => {
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    const res = await axios.get(API_URL + "/posts", {
+        headers: { authorization: user.token },
+    });
+
+    return res.data;
+};
+
 const postsService = {
     createPost,
+    getAllPosts,
 };
 export default postsService;

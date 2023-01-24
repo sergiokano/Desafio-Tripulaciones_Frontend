@@ -5,7 +5,7 @@ import "./Header.scss";
 
 const Header = () => {
     return (
-        <header className="flex items-center justify-around w-screen p-6 text-white bg-orange-1">
+        <header className="flex items-center justify-between w-screen p-6 text-white bg-orange-1">
             <div className="flex gap-3 items-center">
                 <img src={DropdownIcon} alt="" />
                 <span>Soc Campanar</span>
