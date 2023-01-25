@@ -285,22 +285,7 @@ const RegisterAssociation = () => {
                             Aceptar política de privacidad de datos
                         </label>
                     </div>
-                    <div className="flex items-center w-5/6 py-8">
-                        <input
-                            checked={checkedTerms}
-                            onChange={handleCheckedTerms}
-                            id="checked-checkbox2"
-                            type="checkbox"
-                            value=""
-                            className="w-4 h-4 accent-orange-1 p-1 text-white border-gray-300"
-                        />
-                        <label
-                            htmlFor="checked-checkbox2"
-                            className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                        >
-                            Aceptar los términos y condiciones
-                        </label>
-                    </div>
+                   
 
                     <div
                         className="w-full bg-orange-1 py-4 px-6 flex items-center gap-4 text-white"

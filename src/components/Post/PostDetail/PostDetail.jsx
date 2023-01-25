@@ -36,7 +36,7 @@ const PostDetail = () => {
         <div className="flex-1 flex-col mt-6  justify-center ">
           <div className="flex  flex-row gap-6 items-center overflow-x-scroll">
             <img src={Graffiti} alt="" className="w-5/5 ml-6" />
-            <img src={Graffiti} alt="" className="w-5/5 mr-6" />
+            {post.image_path}
           </div>
           <div className="w-full mt-6 flex flex-col">
             <span className="relative left-6 font-bold leading-6 text-[20px]">
