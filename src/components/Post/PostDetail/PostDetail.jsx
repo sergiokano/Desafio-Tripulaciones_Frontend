@@ -42,8 +42,9 @@ const PostDetail = () => {
                 Nº Validaciones: {post.verification.length}
               </span>
             </span>
-            <div className="ml-6 mt-3 text-[13px] text-blue-2 font-bold">
-              Daños espacio público
+            <div className="ml-6 mt-3 text-[13px] text-blue-3 font-bold">
+            {post.category} <br />
+            <span className="text-blue-2">{post.subCategory}</span>
             </div>
 
             <div className="flex flex-col mt-5 border border-neutral-2 bg-neutral-1 ">
