@@ -10,7 +10,6 @@ import Profile from "./components/Profile/Profile";
 import Register from "./components/Register/Register";
 import RegisterSuccesful from "./components/Register/RegisterSuccesful";
 import PrivateZone from "./guards/PrivateZone";
-import Modal from "./components/Modal/Modal";
 
 function App() {
     return (
@@ -30,7 +29,6 @@ function App() {
                                 </PrivateZone>
                             }
                         />
-
                         <Route
                             path="/report-issue"
                             element={<AddPostIssue />}
