@@ -40,10 +40,17 @@ const getById = async (_id) => {
     return res.data;
 };
 
+
+const addLike = async (_id) => {
+    const res = await axios.put(API_URL + "/posts/like/" + _id);
+    return res.data;
+};
+
 const postsService = {
     createPost,
     getAllPosts,
     getById,
+    addLike
 };
 
 export default postsService;
