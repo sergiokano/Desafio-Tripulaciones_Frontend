@@ -10,6 +10,7 @@ import { HiOutlineMail } from "react-icons/hi";
 import { MdPassword } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import Modal from "../../Modal/Modal";
 import DatePicker from "tailwind-datepicker-react";
 import Phone from "../../../assets/svgs/Phone.svg";
 import PhoneWhite from "../../../assets/svgs/PhoneWhite.svg";
@@ -42,9 +43,8 @@ const options = {
 
 const RegisterNeighbour = () => {
     const [show, setShow] = useState(false);
-     
+
     const [checked, setChecked] = useState(false);
-    const [checkedTerms, setCheckedTerms] = useState(false);
     const [formData, setFormData] = useState({
         username: "",
         email: "",
@@ -62,12 +62,6 @@ const RegisterNeighbour = () => {
         }
         setChecked(!checked);
     };
-    const handleCheckedTerms= () => {
-        if (isError) {
-            dispatch(reset());
-        }
-        setCheckedTerms(!checkedTerms);
-    };
 
     const handleChangeDate = (selectedDate) => {
         if (isError) {
@@ -81,15 +75,18 @@ const RegisterNeighbour = () => {
     const handleClose = (state) => {
         setShow(state);
     };
+    const [isModalVisible, setIsModalVisible] = useState(false);
+  const handleClick = () => {
+    setIsModalVisible(true);
+  };
 
     const { username, email, password, password2, firstName, lastName, phone } =
         formData;
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const { isRegistered, isError, errorMessage, errorIcon, isSuccess } = useSelector(
-        (state) => state.auth
-    );
+    const { isRegistered, isError, errorMessage, errorIcon, isSuccess } =
+        useSelector((state) => state.auth);
 
     useEffect(() => {
         dispatch(reset());
@@ -98,7 +95,7 @@ const RegisterNeighbour = () => {
     useEffect(() => {
         if (isRegistered) {
             dispatch(reset());
-            navigate("/registerSuccess");
+            navigate("/registerOk");
         }
     }, [isSuccess]);
 
@@ -114,9 +111,8 @@ const RegisterNeighbour = () => {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        dispatch(registerUser({ ...formData, checked,checkedTerms }));
+        dispatch(registerUser({ ...formData, checked }));
     };
-    
 
     return (
         <div className="flex-1 flex flex-col">
@@ -307,10 +303,11 @@ const RegisterNeighbour = () => {
                             htmlFor="checked-checkbox"
                             className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                         >
-                            Aceptar política de privacidad de datos
+                           Aceptar <a onClick={handleClick}>política de privacidad de datos</a>
+                           <Modal visible={isModalVisible} setVisible={setIsModalVisible}></Modal>
                         </label>
                     </div>
-                   
+
                     <div
                         className="w-full bg-orange-1 py-4 px-6 flex items-center gap-4 text-white"
                         style={{ display: errorIcon ? "block" : "none" }}
@@ -348,6 +345,7 @@ const RegisterNeighbour = () => {
                     >
                         Registrarse
                     </button>
+                    
                     <span
                         className="text-neutral-5 text-[13px] font-semibold hover:text-gray-900"
                         onClick={() => navigate("/login")}
