@@ -18,6 +18,7 @@ import { registerAssociation, reset } from "../../../features/auth/authSlice";
 
 const RegisterAssociation = () => {
     const [checked, setChecked] = useState(false);
+    const [checkedTerms, setCheckedTerms] = useState(false);
     const [formData, setFormData] = useState({
         username: "",
         cif: "",
@@ -34,6 +35,12 @@ const RegisterAssociation = () => {
             dispatch(reset());
         }
         setChecked(!checked);
+    };
+    const handleCheckedTerms= () => {
+        if (isError) {
+            dispatch(reset());
+        }
+        setCheckedTerms(!checkedTerms);
     };
 
     const {
@@ -75,7 +82,7 @@ const RegisterAssociation = () => {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        dispatch(registerAssociation({ ...formData, checked }));
+        dispatch(registerAssociation({ ...formData, checked,checkedTerms }));
     };
 
     return (
@@ -276,6 +283,22 @@ const RegisterAssociation = () => {
                             className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                         >
                             Aceptar política de privacidad de datos
+                        </label>
+                    </div>
+                    <div className="flex items-center w-5/6 py-8">
+                        <input
+                            checked={checkedTerms}
+                            onChange={handleCheckedTerms}
+                            id="checked-checkbox2"
+                            type="checkbox"
+                            value=""
+                            className="w-4 h-4 accent-orange-1 p-1 text-white border-gray-300"
+                        />
+                        <label
+                            htmlFor="checked-checkbox2"
+                            className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                        >
+                            Aceptar los términos y condiciones
                         </label>
                     </div>
 
