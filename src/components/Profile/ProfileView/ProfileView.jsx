@@ -4,17 +4,18 @@ import { getInfo } from "../../../features/auth/authSlice";
 import "./ProfileView.scss";
 import Vector from "../../../assets/Vector.svg";
 import Location from "../../../assets/location.svg";
-import Profile from "../../../assets/profile.svg";
+
 
 const ProfileView = () => {
   const { user } = useSelector((state) => state.auth);
   const { posts } = useSelector((state) => state.posts);
 
   const dispatch = useDispatch();
-  const API_URL = "http://localhost:8080/";
+  const API_URL = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     dispatch(getInfo());
+    // eslint-disable-next-line
   }, [posts]);
 
   if (!user) {

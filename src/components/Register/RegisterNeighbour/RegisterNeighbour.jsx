@@ -125,7 +125,7 @@ const RegisterNeighbour = () => {
                 autoComplete="off"
                 onSubmit={onSubmit}
             >
-                <div className="flex-1 flex flex-col items-center gap-2 bg-neutral-1 pt-4 w-full">
+                <div className="flex-1 flex flex-col items-center gap-2 bg-neutral-1 py-4 w-full">
                     <div className="w-5/6">
                         <label
                             htmlFor="neighbourUser"

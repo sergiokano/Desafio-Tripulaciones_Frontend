@@ -1,5 +1,5 @@
 import axios from "axios";
-const API_URL = "http://localhost:8080";
+const API_URL = process.env.REACT_APP_API_URL;
 
 const createPost = async (data) => {
     const user = JSON.parse(localStorage.getItem("user"));
@@ -18,7 +18,7 @@ const createPost = async (data) => {
     formData.append("latitude", data.latitude);
     if (data.file) formData.append("image", data.file);
 
-    const res = await axios.post(API_URL + "/posts", formData, {
+    const res = await axios.post(API_URL + "posts", formData, {
         headers: { authorization: user.token },
     });
 

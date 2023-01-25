@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkfrontend_tripulaciones=self.webpackChunkfrontend_tripulaciones||[]).push([[9956],{49956:function(n,e,u){u.r(e),u.d(e,{build:function(){return r.b}});u(88396),u(6394),u(74321),u(21002),u(96415),u(82999),u(58406),u(98634),u(64201),u(19253);var r=u(46516)}}]);
