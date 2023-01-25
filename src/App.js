@@ -10,6 +10,7 @@ import PostDetail from "./components/Post/PostDetail/PostDetail";
 import Register from "./components/Register/Register";
 import RegisterSuccesful from "./components/Register/RegisterSuccesful";
 import PrivateZone from "./guards/PrivateZone";
+import Modal from "./components/Modal/Modal";
 
 function App() {
   return (

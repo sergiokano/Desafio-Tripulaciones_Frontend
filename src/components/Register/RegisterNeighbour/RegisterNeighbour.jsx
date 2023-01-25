@@ -10,6 +10,7 @@ import { HiOutlineMail } from "react-icons/hi";
 import { MdPassword } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import Modal from "../../Modal/Modal";
 import DatePicker from "tailwind-datepicker-react";
 import Phone from "../../../assets/svgs/Phone.svg";
 import PhoneWhite from "../../../assets/svgs/PhoneWhite.svg";
@@ -74,6 +75,10 @@ const RegisterNeighbour = () => {
     const handleClose = (state) => {
         setShow(state);
     };
+    const [isModalVisible, setIsModalVisible] = useState(false);
+  const handleClick = () => {
+    setIsModalVisible(true);
+  };
 
     const { username, email, password, password2, firstName, lastName, phone } =
         formData;
@@ -298,7 +303,8 @@ const RegisterNeighbour = () => {
                             htmlFor="checked-checkbox"
                             className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                         >
-                            Aceptar política de privacidad de datos
+                           Aceptar <a onClick={handleClick}>política de privacidad de datos</a>
+                           <Modal visible={isModalVisible} setVisible={setIsModalVisible}></Modal>
                         </label>
                     </div>
 
@@ -339,6 +345,7 @@ const RegisterNeighbour = () => {
                     >
                         Registrarse
                     </button>
+                    
                     <span
                         className="text-neutral-5 text-[13px] font-semibold hover:text-gray-900"
                         onClick={() => navigate("/login")}
