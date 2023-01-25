@@ -21,6 +21,7 @@ export const postsSlice = createSlice({
             state.isSuccess = false;
             state.isLoading = false;
             state.errorMessage = "";
+            state.post = null;
         },
     },
     extraReducers: (builder) => {
@@ -31,14 +32,20 @@ export const postsSlice = createSlice({
             .addCase(getAllPosts.fulfilled, (state, action) => {
                 state.posts = action.payload;
             })
-
             .addCase(getById.fulfilled, (state, action) => {
-              state.isSuccess = true;
-              state.post = action.payload.post;
+                state.isSuccess = true;
+                state.post = action.payload.post;
             })
-      
             .addCase(getById.rejected, (state) => {
-              state.isError = true;
+                state.isError = true;
+            })
+            .addCase(addLike.fulfilled, (state, action) => {
+                state.isError = false;
+                state.post = action.payload.post;
+            })
+            .addCase(removeLike.fulfilled, (state, action) => {
+                state.isError = false;
+                state.post = action.payload.post;
             });
     },
 });
@@ -59,20 +66,27 @@ export const getAllPosts = createAsyncThunk("posts/getAllPosts", async () => {
     }
 });
 export const getById = createAsyncThunk("posts/getById", async (data) => {
-  try {
-    return await postsService.getById(data);
-  } catch (error) {
-    console.error(error);
-  }
-});
-export const addLike = createAsyncThunk("posts/addLike", async () => {
     try {
-        return await postsService.addLike();
+        return await postsService.getById(data);
+    } catch (error) {
+        console.error(error);
+    }
+});
+export const addLike = createAsyncThunk("posts/addLike", async (_id) => {
+    try {
+        return await postsService.addLike(_id);
     } catch (error) {
         console.error(error);
     }
 });
 
+export const removeLike = createAsyncThunk("posts/removeLike", async (_id) => {
+    try {
+        return await postsService.removeLike(_id);
+    } catch (error) {
+        console.error(error);
+    }
+});
 
 export const { reset } = postsSlice.actions;
 export default postsSlice.reducer;
