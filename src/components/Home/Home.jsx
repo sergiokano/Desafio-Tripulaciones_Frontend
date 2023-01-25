@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Logo from "../../assets/logo.png";
-import Google from "../../assets/svgs/Google.svg";
+
 
 const Home = () => {
     const navigate = useNavigate();
@@ -35,13 +35,7 @@ const Home = () => {
                 >
                     Log In
                 </button>
-                <button
-                    type="button"
-                    className="text-slate-500 w-5/6 text-[17px] flex justify-center items-center gap-2 bg-white hover:bg-gray-100 border border-slate-500 focus:ring-4 focus:outline-none focus:ring-gray-100 rounded-[12px] px-5 py-2"
-                >
-                    <img src={Google} alt="" />
-                    <span className="font-bold">Iniciar con Google</span>
-                </button>
+                
             </div>
         </div>
     );
