@@ -21,7 +21,7 @@ const IssueReportedSuccesfully = () => {
                     <div className="w-full flex flex-col justify-center items-center py-6">
                         <div className="py-2 justify-center">
                             <span className="font-semibold text-[28px] leading-7">
-                                ¡Enhroabuena!
+                                ¡Enhorabuena!
                             </span>
                         </div>
                     </div>

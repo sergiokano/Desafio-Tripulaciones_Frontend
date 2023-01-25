@@ -1,0 +1,75 @@
+ .incidence-title{
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 24px 0px 24px 24px;
+gap: 63px;
+color: #FBFBFB;
+width: 375px;
+height: 52px;
+left: 0px;
+top: 172px;
+background: #FA642F;
+}
+
+.profile-img, .incidence-title {
+    display: inline-block;
+}
+
+.incidence-pic {
+     
+width: 375px;
+height: 244px;
+     
+}
+
+.indidence-title{
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 24px 0px 24px 24px;
+gap: 16px;
+width: 375px;
+height: 64px;
+background: #EEEEEE;
+border-bottom: 1px solid #E2E2E2;
+flex: none;
+order: 1;
+flex-grow: 0;
+}
+       
+.vector-container {
+display: flex;
+align-items: center;
+background: #EEEEEE;
+}
+.location-container {
+    display: flex;
+    align-items: center;
+    background: #FBFBFB;
+    }
+  
+.logo-img {
+    margin-right: 10px;
+    margin-left: 15px;
+}
+.loc-img {
+    margin-right: 10px;
+    margin-left: 15px;
+}
+.description-title{
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 24px 0px 24px 24px;
+gap: 16px;
+width: 375px;
+height: 66px;
+background: #FBFBFB;
+border-bottom: 1px solid #C7C7C7;
+flex: none;
+order: 2;
+flex-grow: 0;
+color: #008BA2;
+}
+ 

@@ -47,7 +47,7 @@ const Login = () => {
             notification.success({ message: "Success", description: message });
 
             setTimeout(() => {
-                navigate("/profile");
+                navigate("/home-map");
             }, 2000);
         }
 
@@ -125,15 +125,13 @@ const Login = () => {
                                     <HiOutlineMail className="text-[22px]" />
                                 </div>
                                 <span className="text-sm">
-                                    Correo y/o contraseña incorrectos. <br />
-                                    Puede que todavía no seas miembro de
-                                    SomBarri
+                                    Datos incorrectos. 
+                                    Puede que aún no seas miembro.
                                 </span>
                             </div>
                             <div className="flex items-center">
                                 <button
                                     className="text-[13px] p-1 border-white border rounded-[20px] px-2  hover:bg-orange-2 "
-                                    onClick={() => navigate("/register")}
                                 >
                                     Registrarse
                                 </button>
@@ -150,7 +148,6 @@ const Login = () => {
                     </button>
                     <span
                         className="text-neutral-5 text-[13px] font-semibold hover:text-gray-900"
-                        onClick={() => navigate("/register")}
                         style={{ cursor: "pointer" }}
                     >
                         Registrarse

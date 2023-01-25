@@ -31,11 +31,22 @@ const registerAssociation = async (userData) => {
 
   return res.data;
 };
+const getInfo = async () => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const res = await axios.get(API_URL + "/users/getInfo", {
+      headers: {
+          authorization: user?.token,
+      },
+  });
+  
+  return res.data
+}
 
 const authService = {
   login,
   logout,
   registerUser,
-  registerAssociation
+  registerAssociation,
+  getInfo
 };
 export default authService;

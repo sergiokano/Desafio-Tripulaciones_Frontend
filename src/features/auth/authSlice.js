@@ -61,7 +61,12 @@ export const authSlice = createSlice({
                 state.isLoading = false;
                 state.errorMessage = action.payload.errors[0].msg;
                 state.errorIcon = action.payload.errors[0].param;
-            });
+            })
+            .addCase(getInfo.fulfilled, (state, action) => {
+                state.user ={...state.user, user: action.payload.user};
+                state.isSuccess = true;
+                state.msg = action.payload.msg;
+              });
     },
 });
 
@@ -107,6 +112,13 @@ export const registerAssociation = createAsyncThunk(
         }
     }
 );
+export const getInfo = createAsyncThunk("auth/getInfo", async () => {
+  try {
+      return await authService.getInfo();
+  } catch (error) {
+      console.error(error)
+  }
+});
 
 export const { reset } = authSlice.actions;
 export default authSlice.reducer;
