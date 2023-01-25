@@ -11,20 +11,19 @@ import Header from "../../Header/Header";
 const PostDetail = () => {
   const { post } = useSelector((state) => state.posts);
   const { _id } = useParams();
+  const API_URL = process.env.REACT_APP_API_URL;
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log(post);
     dispatch(getById(_id));
+    console.log(post);
   }, []);
 
   const handleLikeClick = (_id) => {
     dispatch(addLike(_id));
   };
-  // const handleUnlikeClick = (_id) => {
-  //   dispatch(removeLike(_id));
-  // };
+ 
 
   if (!post) {
     return;
@@ -35,8 +34,9 @@ const PostDetail = () => {
       <div className="w-screen h-screen flex flex-col overflow-hidden">
         <div className="flex-1 flex-col mt-6  justify-center ">
           <div className="flex  flex-row gap-6 items-center overflow-x-scroll">
-            <img src={Graffiti} alt="" className="w-5/5 ml-6" />
-            {post.image_path}
+            {/* <img src={Graffiti} alt="" className="w-5/5 ml-6" /> */}
+            <img src={API_URL+post.image_path} alt="" className="w-5/5 ml-6" />
+            
           </div>
           <div className="w-full mt-6 flex flex-col">
             <span className="relative left-6 font-bold leading-6 text-[20px]">
