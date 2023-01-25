@@ -5,7 +5,7 @@ import Graffiti from "../../../assets/pngs/graffiti.png";
 // import Polifilo from "../../../assets/pngs/polifilo.png";
 import { MdOutlineModeComment, MdOutlinePlace } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
-import { getById } from "../../../features/posts/postsSlice";
+import { addLike, getById } from "../../../features/posts/postsSlice";
 import Header from "../../Header/Header";
 
 const PostDetail = () => {
@@ -15,8 +15,16 @@ const PostDetail = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    console.log(post);
     dispatch(getById(_id));
   }, []);
+
+  const handleLikeClick = (_id) => {
+    dispatch(addLike(_id));
+  };
+  // const handleUnlikeClick = (_id) => {
+  //   dispatch(removeLike(_id));
+  // };
 
   if (!post) {
     return;
@@ -43,7 +51,7 @@ const PostDetail = () => {
               </span>
             </span>
             <div className="ml-6 mt-3 text-[13px] text-blue-2 font-bold">
-            {post.subCategory}
+              {post.subCategory}
             </div>
 
             <div className="flex flex-col mt-5 border border-neutral-2 bg-neutral-1 ">
@@ -51,7 +59,9 @@ const PostDetail = () => {
                 <div className="flex flex-col  ml-6 mt-3.5 mb-3.5">
                   <div className="flex flex-row space-x-2 items-center">
                     <MdOutlineModeComment />
-                    <span className="font-bold text-[11px]">{post.userId.username}</span>
+                    <span className="font-bold text-[11px]">
+                      {post.userId.username}
+                    </span>
                   </div>
                   <span className="relative font-text leading-6">
                     {post.description}
@@ -64,11 +74,11 @@ const PostDetail = () => {
                       <div className="flex flex-row space-x-2 items-center">
                         <MdOutlineModeComment />
                         <span className="font-bold text-[11px]">
-                          {post.userId.username}
+                          {post.comments[0].userId}
                         </span>
                       </div>
                       <span className="relative font-text leading-6 whitespace-pre-wrap ">
-                        {post.description}
+                        {post.comments[0].comment}
                       </span>
                     </div>
                   </div>
@@ -80,7 +90,7 @@ const PostDetail = () => {
         <div className="w-full flex flex-col gap-2 justify-center items-center py-8">
           <button
             type="button"
-            // onClick={() => navigate("/login")}
+            onClick={() => handleLikeClick(post._id)}
             className="text-white w-5/6 text-[17px] bg-black hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-gray-300 rounded-[12px] p-2.5"
           >
             Validar Incidencia

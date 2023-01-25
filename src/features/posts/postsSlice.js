@@ -65,6 +65,14 @@ export const getById = createAsyncThunk("posts/getById", async (data) => {
     console.error(error);
   }
 });
+export const addLike = createAsyncThunk("posts/addLike", async () => {
+    try {
+        return await postsService.addLike();
+    } catch (error) {
+        console.error(error);
+    }
+});
+
 
 export const { reset } = postsSlice.actions;
 export default postsSlice.reducer;

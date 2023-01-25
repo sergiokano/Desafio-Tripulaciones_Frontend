@@ -13,6 +13,7 @@ const Header = () => {
         <img src={DropdownIcon} alt="" />
         <span>Soc Campanar</span>
       </div>
+      {/* <GoComment /> */}
       <div onClick={() => navigate("/profile")}>
         <span>
           <FaRegUserCircle className="text-[22px]" />
