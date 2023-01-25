@@ -25,6 +25,20 @@ const createPost = async (data) => {
     return res.data;
 };
 
+const createComment = async (data) => {
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    const res = await axios.put(
+        API_URL + "/posts/comments/" + data._id,
+        { comment: data.comment },
+        {
+            headers: { authorization: user.token },
+        }
+    );
+
+    return res.data;
+};
+
 const getAllPosts = async () => {
     const user = JSON.parse(localStorage.getItem("user"));
 
@@ -70,6 +84,7 @@ const postsService = {
     getById,
     addLike,
     removeLike,
+    createComment,
 };
 
 export default postsService;

@@ -46,6 +46,10 @@ export const postsSlice = createSlice({
             .addCase(removeLike.fulfilled, (state, action) => {
                 state.isError = false;
                 state.post = action.payload.post;
+            })
+            .addCase(createComment.fulfilled, (state, action) => {
+                state.isError = false;
+                state.post = action.payload;
             });
     },
 });
@@ -57,6 +61,17 @@ export const createPost = createAsyncThunk("posts/createPost", async (data) => {
         console.error(error);
     }
 });
+
+export const createComment = createAsyncThunk(
+    "posts/createComment",
+    async (data) => {
+        try {
+            return await postsService.createComment(data);
+        } catch (error) {
+            console.error(error);
+        }
+    }
+);
 
 export const getAllPosts = createAsyncThunk("posts/getAllPosts", async () => {
     try {
