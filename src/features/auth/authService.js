@@ -21,19 +21,19 @@ const logout = async () => {
 };
 
 const registerUser = async (userData) => {
-  const res = await axios.post(API_URL + "users/createUser", userData);
+  const res = await axios.post(API_URL + "/users/createUser", userData);
 
   return res.data;
 };
 
 const registerAssociation = async (userData) => {
-  const res = await axios.post(API_URL + "users/createAssociation", userData);
+  const res = await axios.post(API_URL + "/users/createAssociation", userData);
 
   return res.data;
 };
 const getInfo = async () => {
   const user = JSON.parse(localStorage.getItem("user"));
-  const res = await axios.get(API_URL + "users/getInfo", {
+  const res = await axios.get(API_URL + "/users/getInfo", {
       headers: {
           authorization: user?.token,
       },
