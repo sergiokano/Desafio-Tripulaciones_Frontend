@@ -29,10 +29,30 @@ function App() {
                 </PrivateZone>
               }
             />
-
-            <Route path="/report-issue" element={<AddPostIssue />} />
-            <Route path="/registerOK" element={<RegisterSuccesful />} />
-            <Route path="/post/:_id" element={<PostDetail />} />
+            <Route
+              path="/post/:_id"
+              element={
+                <PrivateZone>
+                  <PostDetail />
+                </PrivateZone>
+              }
+            />
+            <Route
+              path="/report-issue"
+              element={
+                <PrivateZone>
+                  <AddPostIssue />
+                </PrivateZone>
+              }
+            />
+            <Route
+              path="/registerOK"
+              element={
+                <PrivateZone>
+                  <RegisterSuccesful />
+                </PrivateZone>
+              }
+            />
           </Routes>
         </main>
       </BrowserRouter>
