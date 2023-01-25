@@ -42,9 +42,8 @@ const options = {
 
 const RegisterNeighbour = () => {
     const [show, setShow] = useState(false);
-     
+
     const [checked, setChecked] = useState(false);
-    const [checkedTerms, setCheckedTerms] = useState(false);
     const [formData, setFormData] = useState({
         username: "",
         email: "",
@@ -61,12 +60,6 @@ const RegisterNeighbour = () => {
             dispatch(reset());
         }
         setChecked(!checked);
-    };
-    const handleCheckedTerms= () => {
-        if (isError) {
-            dispatch(reset());
-        }
-        setCheckedTerms(!checkedTerms);
     };
 
     const handleChangeDate = (selectedDate) => {
@@ -87,9 +80,8 @@ const RegisterNeighbour = () => {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const { isRegistered, isError, errorMessage, errorIcon, isSuccess } = useSelector(
-        (state) => state.auth
-    );
+    const { isRegistered, isError, errorMessage, errorIcon, isSuccess } =
+        useSelector((state) => state.auth);
 
     useEffect(() => {
         dispatch(reset());
@@ -98,7 +90,7 @@ const RegisterNeighbour = () => {
     useEffect(() => {
         if (isRegistered) {
             dispatch(reset());
-            navigate("/registerSuccess");
+            navigate("/registerOk");
         }
     }, [isSuccess]);
 
@@ -114,9 +106,8 @@ const RegisterNeighbour = () => {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        dispatch(registerUser({ ...formData, checked,checkedTerms }));
+        dispatch(registerUser({ ...formData, checked }));
     };
-    
 
     return (
         <div className="flex-1 flex flex-col">
@@ -310,7 +301,7 @@ const RegisterNeighbour = () => {
                             Aceptar política de privacidad de datos
                         </label>
                     </div>
-                   
+
                     <div
                         className="w-full bg-orange-1 py-4 px-6 flex items-center gap-4 text-white"
                         style={{ display: errorIcon ? "block" : "none" }}
