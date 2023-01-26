@@ -14,6 +14,7 @@
     <a href="https://github.com/sergiokano/Desafio-Tripulaciones_Frontend/issues">Report Bug</a>
     ·
     <a href="https://github.com/sergiokano/Desafio-Tripulaciones_Frontend/issues">Request Feature</a>
+  ·
     </p>
     
  <p align="center">
