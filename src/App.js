@@ -5,11 +5,12 @@ import AddPostIssue from "./components/AddPostIssue/AddPostIssue";
 import Home from "./components/Home/Home";
 import HomeMap from "./components/HomeMap/HomeMap";
 import Login from "./components/Login/Login";
-import Profile from "./components/Profile/Profile";
 import PostDetail from "./components/Post/PostDetail/PostDetail";
+import Profile from "./components/Profile/Profile";
 import Register from "./components/Register/Register";
 import RegisterSuccesful from "./components/Register/RegisterSuccesful";
 import PrivateZone from "./guards/PrivateZone";
+ 
 
 function App() {
   return (
@@ -29,14 +30,7 @@ function App() {
                 </PrivateZone>
               }
             />
-            <Route
-              path="/post/:_id"
-              element={
-                <PrivateZone>
-                  <PostDetail />
-                </PrivateZone>
-              }
-            />
+
             <Route
               path="/report-issue"
               element={
@@ -50,6 +44,14 @@ function App() {
               element={
                 <PrivateZone>
                   <RegisterSuccesful />
+                </PrivateZone>
+              }
+            />
+            <Route
+              path="/post/:_id"
+              element={
+                <PrivateZone>
+                  <PostDetail />
                 </PrivateZone>
               }
             />
