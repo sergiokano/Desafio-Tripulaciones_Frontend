@@ -1,4 +1,4 @@
-# React Neighborhood Social Network Project - SomBarri
+  <p align="center"> # React Neighborhood Social Network Project - SomBarri </p>
 
  <h3 align="center">MERN STACK PROJECT</h3>
 
@@ -13,6 +13,10 @@
     <a href="https://github.com/sergiokano/Desafio-Tripulaciones_Frontend/issues">Request Feature</a>
   </p>
 </div>
+
+![foto](./README_assets/Group 15.png) 
+![foto](./README_assets/Group 16.png) 
+![foto](./README_assets/Group 17.png) 
 
 <!-- TABLE OF CONTENTS -->
 <details>
