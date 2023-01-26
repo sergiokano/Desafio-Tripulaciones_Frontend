@@ -303,7 +303,8 @@ const RegisterNeighbour = () => {
                             htmlFor="checked-checkbox"
                             className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                         >
-                           Aceptar <a onClick={handleClick}>política de privacidad de datos</a>
+                           Aceptar <span class="underline cursor-pointer" onClick={handleClick}>política de privacidad de datos</span>
+                           {console.log(isModalVisible)}
                            <Modal visible={isModalVisible} setVisible={setIsModalVisible}></Modal>
                         </label>
                     </div>
