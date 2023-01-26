@@ -45,7 +45,7 @@ const Login = () => {
 
         if (isSuccess) {
             notification.success({
-                message: "Bienvenido",
+                message: "Bienvenido/a",
                 description: message,
             });
 
