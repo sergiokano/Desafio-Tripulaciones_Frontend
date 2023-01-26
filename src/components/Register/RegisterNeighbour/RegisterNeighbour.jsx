@@ -47,13 +47,13 @@ const RegisterNeighbour = () => {
   const [checked, setChecked] = useState(false);
 
   const [formData, setFormData] = useState({
-    username: "",
-    email: "",
-    password: "",
-    password2: "",
-    firstName: "",
-    lastName: "",
-    phone: "",
+    username: "sergiokano",
+    email: "sergio.cano@gmail.com",
+    password: "Newpassword_2023*",
+    password2: "Newpassword_2023*",
+    firstName: "sergio",
+    lastName: "test",
+    phone: "654654654",
     birthdate: new Date(),
   });
 
@@ -95,7 +95,6 @@ const RegisterNeighbour = () => {
 
   useEffect(() => {
     if (isRegistered) {
-      dispatch(reset());
       navigate("/registerOk");
     }
   }, [isSuccess]);

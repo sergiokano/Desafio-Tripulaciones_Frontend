@@ -40,7 +40,7 @@ function App() {
               }
             />
             <Route
-              path="/registerOK"
+              path="/registerOk"
               element={
                   <RegisterSuccesful />
               }
