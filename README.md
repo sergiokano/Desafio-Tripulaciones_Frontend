@@ -29,7 +29,6 @@
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
@@ -44,15 +43,16 @@
 
 ## Objectives
 
-### Development of a social network where users will:
+### Development of SomBarri, a Neighbourhood Social Network where users will:
 
 <objectives>
   <ol>
     <li>Register</li>
     <li>Log in</a></li>
     <li>View profile</a></li>
-    <li>Create posts</a></li>
+    <li>Post incidences</a></li>
     <li>Add comments</a></li>
+    <li>Add incidences validations</a></li>
     <li>Profile</a></li>
 
 </ol>
@@ -109,14 +109,6 @@ The project is a digital tool that empowers residents in the Valencia neighborho
 This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
 
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-
-- npm
-  ```sh
-  npm install react sass
-  ```
 
 ### Installation
 
@@ -130,21 +122,24 @@ This is an example of how to list things you need to use the software and how to
    ```sh
    git clone https://github.com/sergiokano/Social-Network_React-Redux
    ```
-2. Install NPM packages
+3. Install NPM packages
    ```sh
    npm i
    ```
-3. Start in front-end
+4. Start in front-end
 
    ```sh
    npm start
    ```
 
-3. Start in back-end
+5. Start in back-end
 
    ```sh
    npm run dev
    ```
+   
+6. Create .env file in front-end and back-end following the .env example
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
