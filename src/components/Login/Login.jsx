@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Bridge from "../../assets/svgs/Bridge.svg";
 import { login, reset } from "../../features/auth/authSlice";
+import CryptoJS from 'crypto-js';
 
 const Login = () => {
     const [formData, setFormData] = useState({
@@ -35,9 +36,15 @@ const Login = () => {
 
     const onSubmit = (e) => {
         e.preventDefault();
+        const cipheredPassword = CryptoJS.SHA256(password).toString();
+        setFormData((prevState) => ({
+            ...prevState,
+            password: cipheredPassword
+        }))
         dispatch(login(formData));
     };
 
+    
     useEffect(() => {
         if (isError) {
             notification.error({ message: "Error", description: message });

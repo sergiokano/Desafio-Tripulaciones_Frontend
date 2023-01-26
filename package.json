@@ -3,11 +3,13 @@
     "version": "0.1.0",
     "private": true,
     "dependencies": {
-        "@arcgis/core": "^4.25.5",
+        "@arcgis/core": "^4.24.7",
         "@reduxjs/toolkit": "^1.9.1",
         "antd": "^5.1.5",
         "arcgis-js-api": "^4.25.5",
         "axios": "^1.2.3",
+        "crud": "^0.0.28",
+        "crypto-js": "^4.1.1",
         "dotenv": "^16.0.3",
         "flowbite": "^1.6.2",
         "flowbite-datepicker": "^1.2.2",
@@ -16,9 +18,10 @@
         "react-dom": "^18.2.0",
         "react-icons": "^4.7.1",
         "react-redux": "^8.0.5",
-        "react-router-dom": "^6.6.2",
-        "react-scripts": "5.0.1",
+        "react-router-dom": "^6.8.0",
+        "react-scripts": "^5.0.1",
         "sass": "^1.57.1",
+        "scrypt-async": "^2.0.1",
         "tailwind-datepicker-react": "^1.2.3"
     },
     "scripts": {
