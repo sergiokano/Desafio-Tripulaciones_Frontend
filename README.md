@@ -2,6 +2,7 @@
    React Neighborhood Social Network Project - SomBarri 
 </h1>
 
+![foto](https://github.com/sergiokano/Desafio-Tripulaciones_Frontend/blob/main/README_assets/Captura_de_Pantalla_2023-01-20_a_las_11.18.24.png)
  <h3 align="center">MERN STACK PROJECT</h3>
 
   <p align="center">
