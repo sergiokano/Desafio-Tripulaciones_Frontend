@@ -307,7 +307,7 @@ const RegisterNeighbour = () => {
               <span class="underline cursor-pointer" onClick={handleClick}>
                 política de privacidad de datos
               </span>
-              {console.log(isModalVisible)}
+    
               <Modal
                 visible={isModalVisible}
                 setVisible={setIsModalVisible}

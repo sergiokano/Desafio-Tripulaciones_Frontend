@@ -10,24 +10,30 @@ import { HiOutlineMail } from "react-icons/hi";
 import { MdPassword } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import Modal from "../../Modal/Modal";
 import Phone from "../../../assets/svgs/Phone.svg";
 import PhoneWhite from "../../../assets/svgs/PhoneWhite.svg";
 import Text from "../../../assets/svgs/Text.svg";
 import TextWhite from "../../../assets/svgs/TextWhite.svg";
 import { registerAssociation, reset } from "../../../features/auth/authSlice";
+import ModalComponent from "../../Modal/Modal";
 
 const RegisterAssociation = () => {
   const [checked, setChecked] = useState(false);
   const [formData, setFormData] = useState({
-    username: "",
-    cif: "",
-    email: "",
-    password: "",
-    password2: "",
-    firstName: "",
-    lastName: "",
-    phone: "",
+    username: "newAso",
+    cif: "A65456456",
+    email: "aa@gmail.com",
+    password: "Newuser_2023*",
+    password2: "Newuser_2023*",
+    firstName: "serg",
+    lastName: "serg",
+    phone: "654654654",
   });
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const handleClick = () => {
+    setIsModalVisible(true);
+  };
 
   const handleCheckedChange = () => {
     if (isError) {
@@ -272,10 +278,17 @@ const RegisterAssociation = () => {
               className="w-4 h-4 accent-orange-1 p-1 text-white border-gray-300"
             />
             <label
-              htmlFor="checked-checkbox2"
+              htmlFor="checked-checkbox"
               className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
             >
-              política de privacidad de datos
+              Aceptar{" "}
+              <span class="underline cursor-pointer" onClick={handleClick}>
+                política de privacidad de datos
+              </span>
+              <Modal
+                visible={isModalVisible}
+                setVisible={setIsModalVisible}
+              ></Modal>
             </label>
           </div>
 
