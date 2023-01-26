@@ -17,7 +17,7 @@
     </p>
     
  <p align="center">
-  <img width="460" height="300" src="https://github.com/sergiokano/Desafio-Tripulaciones_Frontend/blob/main/README_assets/Captura_de_Pantalla_2023-01-20_a_las_11.18.24.png">
+  <img width="880"  src="https://github.com/sergiokano/Desafio-Tripulaciones_Frontend/blob/main/README_assets/Captura_de_Pantalla_2023-01-20_a_las_11.18.24.png">
 </p>
 <!-- TABLE OF CONTENTS -->
 <details>
