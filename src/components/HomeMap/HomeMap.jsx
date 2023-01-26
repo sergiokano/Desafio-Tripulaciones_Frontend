@@ -73,7 +73,6 @@ const HomeMap = () => {
             yoffset: "17px",
         };
 
-        console.log(posts);
         for (const post of posts) {
             if (post.longitude && post.latitude) {
                 const point = {
