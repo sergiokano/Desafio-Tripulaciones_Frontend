@@ -118,7 +118,6 @@ const Login = () => {
                         className="my-5 flex-1 w-full flex flex-col-reverse"
                         style={{ display: isError ? "block" : "none" }}
                     >
-                        {/* Este div de aquí debajo te lod ejo para que lo uses para ponerle el error del back. Si no hay error este div no debería salir */}
                         <div className="w-full bg-orange-1 py-4 px-6 text-white flex items-center justify-between">
                             <div className="flex items-center gap-4">
                                 <div>

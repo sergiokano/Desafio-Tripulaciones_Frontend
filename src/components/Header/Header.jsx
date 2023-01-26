@@ -11,7 +11,7 @@ import "./Header.scss";
 const Header = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const { user, isSuccess } = useSelector((state) => state.auth);
+    const { user, logoutSuccess } = useSelector((state) => state.auth);
     const handleLogout = () => {
         dispatch(logout());
     };
@@ -21,7 +21,7 @@ const Header = () => {
     }, []);
 
     useEffect(() => {
-        if (isSuccess) {
+        if (logoutSuccess) {
             navigate("/");
         }
     }, [user]);

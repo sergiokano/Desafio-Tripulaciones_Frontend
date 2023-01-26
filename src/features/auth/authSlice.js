@@ -11,6 +11,7 @@ const initialState = {
     isLoading: false,
     errorMessage: "",
     isRegistered: false,
+    logoutSuccess:false
 };
 
 export const authSlice = createSlice({
@@ -38,6 +39,8 @@ export const authSlice = createSlice({
             })
             .addCase(logout.fulfilled, (state) => {
                 state.user = null;
+                state.logoutSuccess = true;
+
             })
             .addCase(registerUser.fulfilled, (state) => {
                 state.isSuccess = true;
