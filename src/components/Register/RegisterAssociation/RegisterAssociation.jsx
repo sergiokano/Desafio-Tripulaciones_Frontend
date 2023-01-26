@@ -15,8 +15,10 @@ import PhoneWhite from "../../../assets/svgs/PhoneWhite.svg";
 import Text from "../../../assets/svgs/Text.svg";
 import TextWhite from "../../../assets/svgs/TextWhite.svg";
 import { registerAssociation, reset } from "../../../features/auth/authSlice";
+import Modal from "../../Modal/Modal";
 
 const RegisterAssociation = () => {
+ 
   const [checked, setChecked] = useState(false);
   const [formData, setFormData] = useState({
     username: "",
@@ -34,6 +36,11 @@ const RegisterAssociation = () => {
       dispatch(reset());
     }
     setChecked(!checked);
+  };
+ 
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const handleClick = () => {
+    setIsModalVisible(true);
   };
 
   const {
@@ -266,16 +273,23 @@ const RegisterAssociation = () => {
             <input
               checked={checked}
               onChange={handleCheckedChange}
-              id="checked-checkbox2"
+              id="checked-checkbox"
               type="checkbox"
-              value=""
               className="w-4 h-4 accent-orange-1 p-1 text-white border-gray-300"
             />
             <label
-              htmlFor="checked-checkbox2"
+              htmlFor="checked-checkbox"
               className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
             >
-              política de privacidad de datos
+              Aceptar{" "}
+              <span class="underline cursor-pointer" onClick={handleClick}>
+                política de privacidad de datos
+              </span>
+              {console.log(isModalVisible)}
+              <Modal
+                visible={isModalVisible}
+                setVisible={setIsModalVisible}
+              ></Modal>
             </label>
           </div>
 
