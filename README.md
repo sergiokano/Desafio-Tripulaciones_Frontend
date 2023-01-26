@@ -122,7 +122,11 @@ This is an example of how to list things you need to use the software and how to
 
 \_Below is an example of how you can instruct your audience on installing and setting up your app.
 
-1. Clone the repo
+1. Clone the front-end repo
+   ```sh
+   git clone https://github.com/sergiokano/Desafio-Tripulaciones_Frontend
+   ```
+2. Clone the back-end repo in other folder
    ```sh
    git clone https://github.com/sergiokano/Social-Network_React-Redux
    ```
@@ -130,11 +134,17 @@ This is an example of how to list things you need to use the software and how to
    ```sh
    npm i
    ```
-3. Ready to start!
+3. Start in front-end
 
-```sh
-npm start
-```
+   ```sh
+   npm start
+   ```
+
+3. Start in back-end
+
+   ```sh
+   npm run dev
+   ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -169,7 +179,7 @@ Don't forget to give the project a star! Thanks again!
 
 ## License
 
-This project is under license of Sergio Cano
+This project is under license of Sergio Cano, Diego Palones, Álex Jiménez and Dani Arango
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -184,7 +194,7 @@ This project is under license of Sergio Cano
 
 <!-- ![foto](./src/components/image/form.png) -->
 
-![gif](https://github.com/sergiokano/Social-Network_React-Redux/blob/main/src/assets/gif/home-view.gif)
+
 
 <!-- - Products general overview -->
 
@@ -249,7 +259,6 @@ Developed by:
 [TailwindCSS-url]: https://tailwindcss.com/
 [AWS]: https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white
 [AWS-url]: https://aws.amazon.com/es/
-![Railway](https://img.shields.io/static/v1?style=for-the-badge&message=Railway&color=0B0D0E&logo=Railway&logoColor=FFFFFF&label=)
 [Railway]: https://img.shields.io/static/v1?style=for-the-badge&message=Railway&color=0B0D0E&logo=Railway&logoColor=FFFFFF&label=
 [Railway-url]: https://railway.app/
 
