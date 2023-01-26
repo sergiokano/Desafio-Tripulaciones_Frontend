@@ -45,7 +45,10 @@ const Login = () => {
         }
 
         if (isSuccess) {
-            notification.success({ message: "Success", description: message });
+            notification.success({
+                message: "Bienvenido/a",
+                description: message,
+            });
 
             setTimeout(() => {
                 navigate("/home-map");
@@ -125,17 +128,17 @@ const Login = () => {
                                     <HiOutlineMail className="text-[22px]" />
                                 </div>
                                 <span className="text-sm">
-                                    Datos incorrectos. 
-                                    Puede que aún no seas miembro.
+                                    Datos incorrectos. Puede que aún no seas
+                                    miembro.
                                 </span>
                             </div>
                             <div className="flex items-center">
-                                <button
+                                <span
                                     className="text-[13px] p-1 border-white border rounded-[20px] px-2  hover:bg-orange-2 "
                                     onClick={() => navigate("/register")}
                                 >
                                     Registrarse
-                                </button>
+                                </span>
                             </div>
                         </div>
                     </div>
