@@ -1,11 +1,9 @@
-import { Navigate } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 
-const PrivateZone = ({ children }) => {
+const PrivateZone = () => {
+    const user = localStorage.getItem("user");
 
-const user = localStorage.getItem("user");
-
-return user ? children : <Navigate to="/login" />;
-
+    return user ? <Outlet /> : <Navigate to="/login" />;
 };
 
 export default PrivateZone;
