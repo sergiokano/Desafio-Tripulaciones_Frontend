@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Bridge from "../../assets/svgs/Bridge.svg";
 import { login, reset } from "../../features/auth/authSlice";
-import CryptoJS from 'crypto-js';
 
 const Login = () => {
     const [formData, setFormData] = useState({
@@ -36,11 +35,6 @@ const Login = () => {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        const cipheredPassword = CryptoJS.SHA256(password).toString();
-        setFormData((prevState) => ({
-            ...prevState,
-            password: cipheredPassword
-        }))
         dispatch(login(formData));
     };
 
@@ -51,10 +45,7 @@ const Login = () => {
         }
 
         if (isSuccess) {
-            notification.success({
-                message: "Bienvenido/a",
-                description: message,
-            });
+            notification.success({ message: "Success", description: message });
 
             setTimeout(() => {
                 navigate("/home-map");
@@ -134,17 +125,17 @@ const Login = () => {
                                     <HiOutlineMail className="text-[22px]" />
                                 </div>
                                 <span className="text-sm">
-                                    Datos incorrectos. Puede que aún no seas
-                                    miembro.
+                                    Datos incorrectos. 
+                                    Puede que aún no seas miembro.
                                 </span>
                             </div>
                             <div className="flex items-center">
-                                <span
+                                <button
                                     className="text-[13px] p-1 border-white border rounded-[20px] px-2  hover:bg-orange-2 "
                                     onClick={() => navigate("/register")}
                                 >
                                     Registrarse
-                                </span>
+                                </button>
                             </div>
                         </div>
                     </div>
