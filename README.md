@@ -3,7 +3,7 @@
 </h1>
 
 
- <h3 align="center">MERN STACK PROJECT</h3>
+ <h3 align="center">MERN STACK PROJECT MOBILE FIRST</h3>
 
   <p align="center">
     Neighborhood Social Network made using MERN stack, Redux, Tailwind and SASS.
