@@ -44,7 +44,7 @@ const Login = () => {
         }
 
         if (isSuccess) {
-            notification.success({ message: "Success", description: message });
+            notification.success({ message: "Bienvenido", description: message });
 
             setTimeout(() => {
                 navigate("/home-map");
