@@ -78,7 +78,7 @@ const PostDetail = () => {
                                     placeholder="Escribe tu comentario aquí"
                                 ></textarea>
                             </div>
-                            <div className="flex justify-between md:justify-end gap-2">
+                            <div className="flex justify-between md:justify-end text-[14px] gap-2">
                                 <button
                                     type="button"
                                     onClick={handleCloseModal}
