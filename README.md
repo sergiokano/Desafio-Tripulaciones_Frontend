@@ -14,7 +14,6 @@
   </p>
 </div>
 
-![foto](https://github.com/sergiokano/Desafio-Tripulaciones_Frontend/blob/main/README_assets/Group%2017.png) 
 
 <!-- TABLE OF CONTENTS -->
 <details>
