@@ -184,8 +184,6 @@ This project is under license of Sergio Cano, Diego Palones, Álex Jiménez and 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 <!-- PREVIEW -->
 
 ## Preview
