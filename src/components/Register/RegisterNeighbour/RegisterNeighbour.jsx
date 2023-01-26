@@ -96,7 +96,7 @@ const RegisterNeighbour = () => {
   useEffect(() => {
     if (isRegistered) {
       dispatch(reset());
-      navigate("/registerSuccess");
+      navigate("/registerOk");
     }
   }, [isSuccess]);
 

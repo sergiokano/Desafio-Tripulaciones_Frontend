@@ -42,9 +42,7 @@ function App() {
             <Route
               path="/registerOK"
               element={
-                <PrivateZone>
                   <RegisterSuccesful />
-                </PrivateZone>
               }
             />
             <Route
