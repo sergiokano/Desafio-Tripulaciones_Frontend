@@ -2,7 +2,7 @@
    React Neighborhood Social Network Project - SomBarri 
 </h1>
 
-![foto](https://github.com/sergiokano/Desafio-Tripulaciones_Frontend/blob/main/README_assets/Captura_de_Pantalla_2023-01-20_a_las_11.18.24.png)
+
  <h3 align="center">MERN STACK PROJECT</h3>
 
   <p align="center">
@@ -14,10 +14,9 @@
     <a href="https://github.com/sergiokano/Desafio-Tripulaciones_Frontend/issues">Report Bug</a>
     ·
     <a href="https://github.com/sergiokano/Desafio-Tripulaciones_Frontend/issues">Request Feature</a>
+  
+![foto](https://github.com/sergiokano/Desafio-Tripulaciones_Frontend/blob/main/README_assets/Captura_de_Pantalla_2023-01-20_a_las_11.18.24.png)
   </p>
-</div>
-
-
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
