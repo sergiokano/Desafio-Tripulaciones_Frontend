@@ -10,41 +10,56 @@ import Profile from "./components/Profile/Profile";
 import Register from "./components/Register/Register";
 import RegisterSuccesful from "./components/Register/RegisterSuccesful";
 import PrivateZone from "./guards/PrivateZone";
-import Modal from "./components/Modal/Modal";
+ 
 
 function App() {
-    return (
-        <div className="App">
-            <BrowserRouter>
-                <main>
-                    <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/home-map" element={<HomeMap />} />
-                        <Route path="/login" element={<Login />} />
-                        <Route path="/register" element={<Register />} />
-                        <Route
-                            path="/profile"
-                            element={
-                                <PrivateZone>
-                                    <Profile />
-                                </PrivateZone>
-                            }
-                        />
+  return (
+    <div className="App">
+      <BrowserRouter>
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/home-map" element={<HomeMap />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route
+              path="/profile"
+              element={
+                <PrivateZone>
+                  <Profile />
+                </PrivateZone>
+              }
+            />
 
-                        <Route
-                            path="/report-issue"
-                            element={<AddPostIssue />}
-                        />
-                        <Route
-                            path="/registerOK"
-                            element={<RegisterSuccesful />}
-                        />
-                        <Route path="/post/:_id" element={<PostDetail />} />
-                    </Routes>
-                </main>
-            </BrowserRouter>
-        </div>
-    );
+            <Route
+              path="/report-issue"
+              element={
+                <PrivateZone>
+                  <AddPostIssue />
+                </PrivateZone>
+              }
+            />
+            <Route
+              path="/registerOK"
+              element={
+                <PrivateZone>
+                  <RegisterSuccesful />
+                </PrivateZone>
+              }
+            />
+            <Route
+              path="/post/:_id"
+              element={
+                <PrivateZone>
+                  <PostDetail />
+                </PrivateZone>
+              }
+            />
+          </Routes>
+        </main>
+      </BrowserRouter>
+    </div>
+  );
 }
 
 export default App;
