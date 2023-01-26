@@ -15,9 +15,9 @@
     ·
     <a href="https://github.com/sergiokano/Desafio-Tripulaciones_Frontend/issues">Request Feature</a>
     </p>
-   <p align="center">
-![foto](https://github.com/sergiokano/Desafio-Tripulaciones_Frontend/blob/main/README_assets/Captura_de_Pantalla_2023-01-20_a_las_11.18.24.png)
-  </p>
+ 
+![foto align="center"](https://github.com/sergiokano/Desafio-Tripulaciones_Frontend/blob/main/README_assets/Captura_de_Pantalla_2023-01-20_a_las_11.18.24.png)
+
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
