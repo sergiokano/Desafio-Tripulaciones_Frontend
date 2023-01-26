@@ -9,7 +9,6 @@
         "arcgis-js-api": "^4.25.5",
         "axios": "^1.2.3",
         "crud": "^0.0.28",
-        "crypto-js": "^4.1.1",
         "dotenv": "^16.0.3",
         "flowbite": "^1.6.2",
         "flowbite-datepicker": "^1.2.2",
