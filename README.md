@@ -1,4 +1,6 @@
-  <p align="center"> # React Neighborhood Social Network Project - SomBarri </p>
+  <p align="center"> 
+  # React Neighborhood Social Network Project - SomBarri 
+</p>
 
  <h3 align="center">MERN STACK PROJECT</h3>
 
