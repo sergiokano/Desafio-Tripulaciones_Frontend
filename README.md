@@ -90,13 +90,12 @@ The project is a digital tool that empowers residents in the Valencia neighborho
 #### Front-end
 - [![React][react]][react-url]
 - [![SASS][sass]][sass-url]
-- [![SASS][sass]][sass-url]
+- [![Redux][redux]][redux-url]
 - [![TailwindCSS][TailwindCSS]][TailwindCSS-url]
 
 #### Back-end
 - [![Node][node.js]][node.js-url]
 - [![Express][express.js]][express.js-url]
-- [![Redux][redux]][redux-url]
 - [![Mongodb][mongodb]][mongodb-url]
 
 #### Deployed With
