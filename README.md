@@ -188,19 +188,24 @@ This project is under license of Sergio Cano, Diego Palones, Álex Jiménez and 
 
 ## Preview
 
-- Home general overview
+*  Register overview
 
-<!-- ![foto](./src/components/image/form.png) -->
+https://user-images.githubusercontent.com/113861899/214971169-f8d3be1f-edee-4445-8e2e-a8dbacfcb6c7.mp4
 
 
+* Login
 
-<!-- - Products general overview -->
+https://user-images.githubusercontent.com/113861899/214971251-856d9186-e402-40fb-9955-1ccbe622fcc3.mp4
 
-<!-- ![foto](./src/components/image/linknews.png) -->
 
-<!-- - Product Single Page general overview -->
+* Profile
 
-<!-- ![foto](./src/components/image/linknews.png) -->
+https://user-images.githubusercontent.com/113861899/214971472-3ae49098-7e31-4880-9809-85ada771e445.mp4
+
+* Report
+
+https://user-images.githubusercontent.com/113861899/214971552-c005db2a-2775-4e8b-a267-1ba6d8ad32f7.mp4
+
 
 <!-- CONTACT -->
 
