@@ -16,7 +16,7 @@
 
 ![foto](./README_assets/Group 15.png) 
 ![foto](./README_assets/Group 16.png) 
-![foto](./README_assets/Group 17.png) 
+![foto]([./README_assets/Group 17.png](https://github.com/sergiokano/Desafio-Tripulaciones_Frontend/blob/main/README_assets/Group%2017.png) 
 
 <!-- TABLE OF CONTENTS -->
 <details>
